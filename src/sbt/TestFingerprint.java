@@ -1,5 +1,6 @@
 package sbt;
 
+/** A way to identify a test. */
 public interface TestFingerprint
 {
 	/** The name of the type that designates a test.*/
