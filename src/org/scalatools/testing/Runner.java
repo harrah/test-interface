@@ -1,4 +1,4 @@
-package sbt;
+package org.scalatools.testing;
 
 public interface Runner
 {
@@ -8,5 +8,5 @@ public interface Runner
 	* 'fingerprint' indicates how the test was identified as a test.  This method may be called with the same value for
 	* 'testClassName' but different fingerprints.  For example, if both a class and its companion object were tests,
 	* this method would be called with the same name but with a different value for 'fingerprint.isModule'. */
-	public Result run(String testClassName, TestFingerprint fingerprint);
+	public Result run(String testClassName, TestFingerprint fingerprint, String [] args);
 }

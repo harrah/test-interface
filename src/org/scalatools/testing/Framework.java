@@ -1,4 +1,4 @@
-package sbt;
+package org.scalatools.testing;
 
 public interface Framework
 {
