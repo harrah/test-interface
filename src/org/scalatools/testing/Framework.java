@@ -8,6 +8,6 @@ public interface Framework
 	public TestFingerprint[] tests();
 
 	/** Provide a runner for tests that will load test classes from 'testClassLoader' and direct all
-	* logging output from the framework to 'logger'.*/
-	public Runner testRunner(ClassLoader testClassLoader, Logger logger);
+	* logging output from the framework to 'loggers'.*/
+	public Runner testRunner(ClassLoader testClassLoader, Logger[] loggers);
 }

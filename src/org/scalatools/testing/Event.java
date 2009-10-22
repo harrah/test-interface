@@ -1,6 +1,6 @@
 package org.scalatools.testing;
 
-public interface TestResult {
+public interface Event {
 
     String testName();
 
