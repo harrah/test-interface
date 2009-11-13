@@ -8,5 +8,5 @@ public interface Runner
 	* 'fingerprint' indicates how the test suite was identified as a test suite.  This method may be called with the
 	* same value for 'testClassName' but different fingerprints.  For example, if both a class and its companion object
 	* were tests, this method would be called with the same name but with a different value for 'fingerprint.isModule'. */
-	public Event[] run(String testClassName, TestFingerprint fingerprint, String [] args);
+	public void run(String testClassName, TestFingerprint fingerprint, EventHandler eventHandler, String [] args);
 }
