@@ -5,4 +5,4 @@ For test framework authors, the interfaces to implement are:
  * Runner
  * Fingerprint
 
-For test framework clients, Logger must be implemented.
+For test framework clients, Logger and EventHandler must be implemented.
