@@ -11,4 +11,5 @@ public interface Logger
 	public void warn(String msg);
 	public void info(String msg);
 	public void debug(String msg);
+	public void trace(Throwable t);
 }
