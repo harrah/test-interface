@@ -1,11 +1,4 @@
 package org.scalatools.testing;
 
-/** A way to identify a test. */
-public interface TestFingerprint
-{
-	/** The name of the type that designates a test.*/
-	public String superClassName();
-    
-	/** Whether a test is a module or a class*/
-	public boolean isModule();
-}
+/** For backwards compatibility.  New code should use SubclassFingerprint instead. */
+public interface TestFingerprint extends SubclassFingerprint {}
