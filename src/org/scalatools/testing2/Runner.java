@@ -1,12 +1,25 @@
 package org.scalatools.testing2;
 
-public interface Runner
-{
-	/** Runs the test suite with class name 'testClassName' and returns the results of executing each test
-	* contained in the suite.  This Runner should run the suite in the calling (current) thread.
-	*
-	* 'fingerprint' indicates how the test suite was identified as a test suite.  This method may be called with the
-	* same value for 'testClassName' but different fingerprints.  For example, if both a class and its companion object
-	* were tests, this method would be called with the same name but with a different value for 'fingerprint.isModule'. */
-	public abstract void run(String testClassName, TestFingerprint fingerprint, EventHandler eventHandler, String[] args);
+public interface Runner {
+
+    /**
+     * Gets a task that will execute one test class, possibly returning more tasks.
+     * (We don't need the fingerprint in ScalaTest. If no one else needs it, perhaps 
+     * we should drop it.) Should only be called during "run mode."
+     */
+    public Task getTask(String testClassName, Fingerprint fingerprint);
+
+    /**
+     * Returns a summary string, a string suitable for displaying to the user. sbt can decide
+     * whether to use the string summary and show that to the user.
+     * For example, if only using ScalaTest, better to show the
+     * ScalaTest summary. But if they are using multiple test frameworks,
+     * better to show the sbt summary.
+     *
+     * At this time the test framework should clean up any resources
+     * associated with the run, so sbt should only call it once
+     * the run is completed. Runner is defunct after summarize returns and
+     * cannot be reused.
+     */
+    public String summarize(RunStatus status);
 }
