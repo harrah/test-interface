@@ -1,5 +1,5 @@
 package org.scalatools.testing2;
 
-public interface Collector {
+public interface Distributor {
     void put(Task task);
 }

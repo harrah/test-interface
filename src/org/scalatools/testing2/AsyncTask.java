@@ -14,5 +14,5 @@ public interface AsyncTask extends Task {
      * one task per test in the suite, so that sbt could parallelize the test execution too.
      */
 
-    void execute(Collector collector);
+    void execute(Distributor distributor);
 }

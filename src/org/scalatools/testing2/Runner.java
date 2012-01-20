@@ -7,8 +7,9 @@ public interface Runner {
      * (We don't need the fingerprint in ScalaTest. If no one else needs it, perhaps 
      * we should drop it.) Should only be called during "run mode."
      */
-    public Task getTask(String testClassName, Fingerprint fingerprint);
+    public Task getTask(String testClassName, TestId[] testIds, Fingerprint fingerprint);
 
+    public Task getTask(String testClassName, Fingerprint fingerprint);
     /**
      * Returns a summary string, a string suitable for displaying to the user. sbt can decide
      * whether to use the string summary and show that to the user.
@@ -21,5 +22,7 @@ public interface Runner {
      * the run is completed. Runner is defunct after summarize returns and
      * cannot be reused.
      */
+    // Have logger, passed to testRunner method of Framework, so can decide whether
+    // to return  string with ansi color codes in it or not.
     public String summarize(RunStatus status);
 }
