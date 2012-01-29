@@ -1,6 +1,6 @@
 package org.scalatools.testing2;
 
-public interface SyncTask extends Task {
+public interface ReturningTask extends Task {
 
     /**
      * Either executes tests and nested suites, or returns more tasks, or both.

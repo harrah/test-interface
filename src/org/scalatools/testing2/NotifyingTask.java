@@ -1,6 +1,6 @@
 package org.scalatools.testing2;
 
-public interface AsyncTask extends Task {
+public interface NotifyingTask extends Task {
 
     /**
      * Either executes tests and nested suites, or returns more tasks, or both.
