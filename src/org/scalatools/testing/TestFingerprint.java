@@ -1,4 +1,4 @@
 package org.scalatools.testing;
 
-/** For backwards compatibility.  New code should use Subclass instead. */
+/** For backwards compatibility.  New code should use SubclassFingerprint instead. */
 public interface TestFingerprint extends SubclassFingerprint {}

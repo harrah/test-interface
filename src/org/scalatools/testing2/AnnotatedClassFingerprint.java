@@ -1,10 +1,10 @@
 package org.scalatools.testing2;
 
 /**
- * Indicates that classes (and possibly modules) that contain at least one top-level method
- * with a specific annotation should be discovered as test classes.
+ * Indicates that classes (and possibly modules) with a specific annotation
+ * should be discovered as test classes.
  */
-public interface AnnotatedMethods extends Fingerprint
+public interface AnnotatedClassFingerprint extends Fingerprint
 {
     /**
      * Indicates whether modules (singleton objects) with the annotation should
@@ -19,8 +19,8 @@ public interface AnnotatedMethods extends Fingerprint
     public boolean considerModules();
 
     /**
-     * The name of the annotation that, when it appears on at least one top-level method of a class,
-     * identifies the class as test class to be discovered.
+     * The name of the annotation that identifies classes (and possibly modules) as test classes (or
+     * modules) to be discovered.
      */
     public String annotationName();
 }

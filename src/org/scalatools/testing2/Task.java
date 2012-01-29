@@ -1,5 +1,17 @@
 package org.scalatools.testing2;
 
+/**
+ * A task to (possibly) execute.
+ *
+ * <p>
+ * The client  may decide whether or not to execute the task based on its tags.
+ * A task can be any job, but is primarily intended for running tests and/or supplying more tasks
+ * to the client. The two subtypes provide two ways in which a framework can supply more tasks
+ * to the client. <code>ReturningTask</code> returns an array of Tasks (which can be empty if there's
+ * no more work to do.) <code>NotifyingTask</code> notifies the client of new Tasks via a
+ * passed <code>Distributor</code>.
+ * </p>
+ */
 public interface Task {
 
     /**

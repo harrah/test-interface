@@ -11,6 +11,7 @@ public class TestId {
     }
 
     // in ScalaTest, maybe need another name for the -S
+    // Can be null.
     public String suiteId() {
         return suiteId;
     }
