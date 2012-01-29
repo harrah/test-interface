@@ -7,9 +7,9 @@ package org.scalatools.testing2;
  */
 public interface DoNotDiscoverAnnotation extends Fingerprint
 {
-	/**
+    /**
      * The name of the annotation that indicates a class (or possibly, a module) should
      * <em>not</em> be discovered.
      */
-	public String annotationName();
+    public String annotationName();
 }

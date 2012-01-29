@@ -4,12 +4,12 @@ package org.scalatools.testing2;
 * a Scala interface would be.  We could define a Function0 interface if we find that this is a problem.*/
 public interface Logger
 {
-	/** True if ANSI color codes are understood by this instance.*/
-	public boolean ansiCodesSupported();
+    /** True if ANSI color codes are understood by this instance.*/
+    public boolean ansiCodesSupported();
 
-	public void error(String msg);
-	public void warn(String msg);
-	public void info(String msg);
-	public void debug(String msg);
-	public void trace(Throwable t);
+    public void error(String msg);
+    public void warn(String msg);
+    public void info(String msg);
+    public void debug(String msg);
+    public void trace(Throwable t);
 }

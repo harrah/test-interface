@@ -16,11 +16,11 @@ public interface AnnotatedMethods extends Fingerprint
      * classes for modules can be quickly bypassed.
      * </p>
      */
-	public boolean considerModules();
+    public boolean considerModules();
 
     /**
      * The name of the annotation that, when it appears on at least one top-level method of a class,
      * identifies the class as test class to be discovered.
      */
-	public String annotationName();
+    public String annotationName();
 }

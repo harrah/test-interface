@@ -6,7 +6,7 @@ package org.scalatools.testing2;
  */
 public interface AnnotatedClass extends Fingerprint
 {
-	/**
+    /**
      * Indicates whether modules (singleton objects) with the annotation should
      * be considered during discovery, or just classes.
      *
@@ -16,11 +16,11 @@ public interface AnnotatedClass extends Fingerprint
      * classes for modules can be quickly bypassed.
      * </p>
      */
-	public boolean considerModules();
+    public boolean considerModules();
 
-	/**
+    /**
      * The name of the annotation that identifies classes (and possibly modules) as test classes (or
      * modules) to be discovered.
      */
-	public String annotationName();
+    public String annotationName();
 }
