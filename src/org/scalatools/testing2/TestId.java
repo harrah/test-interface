@@ -16,7 +16,7 @@ public class TestId {
         return suiteId;
     }
 
-    // For the -t
+    // For the -t   cannot be null
     public String testName() {
         return testName;
     }

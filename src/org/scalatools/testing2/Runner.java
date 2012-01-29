@@ -9,13 +9,15 @@ public interface Runner {
      */
 
     // This one can be used to rerun failed tests
-    public Task getTask(String testClassName, TestId[] testIds, Fingerprint fingerprint);
+    public Task getTask(String testClassName, TestId[] failedTestIds);
 
     // This one can be used to just run discovered test classes
-    public Task getTask(String testClassName, Fingerprint fingerprint);
+    public Task getTask(String testClassName);
+
+    // And this one to rerun aborted suites
+    public Task getTask(String testClassName, String[] abortedSuiteIds);
 
     // This one can be used to rerun aborted suites
-    public Task getTask(String testClassName, String suiteId, Fingerprint fingerprint);
 
     /**
      * Returns a summary string, a string suitable for displaying to the user. sbt can decide
