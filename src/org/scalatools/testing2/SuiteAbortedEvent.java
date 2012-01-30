@@ -50,7 +50,7 @@ public class SuiteAbortedEvent implements Event {
         this.throwable = throwable;
     }
 
-    // Note, in ScalaTest this is for -s <className>
+    // Note, in ScalaTest this is for -s <testClassName>
     /**
      * The class name for this <code>SuiteAbortedEvent</code>.
      *

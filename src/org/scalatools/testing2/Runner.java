@@ -69,7 +69,7 @@ public interface Runner {
      *                         construct its summary string).
      * @param ansiCodesSupported indicates whether the summary string may contain ANSI color commands.
      *
-     * @return a test-framework-specific summary string for the test run
+     * @return a test-framework-specific string summarizing the test run
      */
     public String summarize(RunStatus completionStatus, boolean ansiCodesSupported);
 }
