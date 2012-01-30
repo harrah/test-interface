@@ -17,46 +17,59 @@ package org.scalatools.testing2;
 public interface Runner {
 
     /**
-     * Gets a task that will execute one test class, possibly returning more tasks.
-     * (We don't need the fingerprint in ScalaTest. If no one else needs it, perhaps 
-     * we should drop it.) Should only be called during "run mode."
-     */
-
-    // This one can be used to just run discovered test classes
-
-    /**
-     * Returns a task to run the passed test class name.
+     * Returns a task that when executed will run the test class whose name is passed as
+     * <code>testClassName</code>.
      *
      * @param testClassName the fully qualified name of the test class to be run by the returned task
-     * @return a task that when executed will run the passed test class
+     * @return a task that when executed will run the test class whse name was passed
+     * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
     public Task task(String testClassName);
 
-    // This one can be used to rerun failed tests
-    // And this one to rerun aborted suites
     /**
-     * Returns a task to rerun failed tests based on the the passed test class name, failed test IDs,
-     * and suite aborted IDs.
+     * Returns a task that when executed will rerun failed tests and aborted suites based on the
+     * passed test class name, failed test IDs, and aborted suite IDs.
      *
      * @param testClassName the fully qualified name of the test class to be run by the returned task
+     * @param failedTestIds a possibly empty array of Test IDs for failed tests to rerun
+     * @param abortedSuiteIds a possibly empty array of suite IDs for aborted suites to rerun
      * @return a task that when executed will run the passed test class
+     * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
     public Task task(String testClassName, TestId[] failedTestIds, String[] abortedSuiteIds);
 
-
     /**
-     * Returns a summary string, a string suitable for displaying to the user. sbt can decide
-     * whether to use the string summary and show that to the user.
-     * For example, if only using ScalaTest, better to show the
-     * ScalaTest summary. But if they are using multiple test frameworks,
-     * better to show the sbt summary.
+     * Returns a test-framework specific summary string suitable for displaying to the user.
      *
-     * At this time the test framework should clean up any resources
-     * associated with the run, so sbt should only call it once
-     * the run is completed. Runner is defunct after summarize returns and
-     * cannot be reused.
+     * <p>
+     * If the passed <code>ansiCodesSupported</code> is false, the returned summary string should not
+     * contain ANSI color commands. If true, the returned summary string may contain ANSI
+     * color commands.
+     * </p>
+     *
+     * <p>
+     * The client can decide whether to actually show the summary string to the user.
+     * For example, if only using one test framework, it user would probably prefer that the
+     * client show the test-framework specific summary string, because it will look the same
+     * as the summary they see when using the test framework directly (i.e., not through the
+     * client). But if they are using multiple test frameworks, it may be better to show
+     * a single, more general client-defined summary.
+     * </p>
+     *
+     * <p>
+     * The invocation of this method signals the end of the run. In addition to creating and
+     * returning the summary string, the test framework should clean up any resources
+     * associated with the run. The <code>Runner</code> is "spent" after <code>summarize</code> returns and
+     * cannot be reused. Any subsequent invocations of a <code>task</code> method will be met with
+     * <code>IllegalStateException</code>s.
+     * </p>
+     *
+     * @param completionStatus indicates whether the run completed normally, or aborted or was
+     *                         requested to stop (information which the test framework may use to
+     *                         construct its summary string).
+     * @param ansiCodesSupported indicates whether the summary string may contain ANSI color commands.
+     *
+     * @return a test-framework-specific summary string for the test run
      */
-    // Have logger, passed to testRunner method of Framework, so can decide whether
-    // to return  string with ansi color codes in it or not.
-    public String summarize(RunStatus status);
+    public String summarize(RunStatus completionStatus, boolean ansiCodesSupported);
 }
