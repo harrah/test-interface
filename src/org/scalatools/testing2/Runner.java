@@ -1,5 +1,19 @@
 package org.scalatools.testing2;
 
+/**
+ * Represents one run of a suite of tests.
+ *
+ * <p>
+ * The run represented by a <code>Runner</code> has a lifecycle. The run begins when the
+ * <code>Runner</code> is instantiated by the framework and returned to the client during
+ * a <code>Framework.testRunner</code> invocation. The run continues until the client
+ * invokes <code>summarize</code> on the <code>Runner</code>. Before invoking <code>summarize</code>,
+ * the client can invoke the <code>task</code> methods as many times at it wants, but once
+ * <code>summarize</code> has been invoked, the <code>Runner</code> enters "spent" mode. Any
+ * subsequent invocations of <code>task</code> methods will be met with an
+ * <code>IllegalStateException</code>.
+ * </p>
+ */
 public interface Runner {
 
     /**
@@ -8,16 +22,27 @@ public interface Runner {
      * we should drop it.) Should only be called during "run mode."
      */
 
-    // This one can be used to rerun failed tests
-    public Task getTask(String testClassName, TestId[] failedTestIds);
-
     // This one can be used to just run discovered test classes
-    public Task getTask(String testClassName);
 
+    /**
+     * Returns a task to run the passed test class name.
+     *
+     * @param testClassName the fully qualified name of the test class to be run by the returned task
+     * @return a task that when executed will run the passed test class
+     */
+    public Task task(String testClassName);
+
+    // This one can be used to rerun failed tests
     // And this one to rerun aborted suites
-    public Task getTask(String testClassName, String[] abortedSuiteIds);
+    /**
+     * Returns a task to rerun failed tests based on the the passed test class name, failed test IDs,
+     * and suite aborted IDs.
+     *
+     * @param testClassName the fully qualified name of the test class to be run by the returned task
+     * @return a task that when executed will run the passed test class
+     */
+    public Task task(String testClassName, TestId[] failedTestIds, String[] abortedSuiteIds);
 
-    // This one can be used to rerun aborted suites
 
     /**
      * Returns a summary string, a string suitable for displaying to the user. sbt can decide

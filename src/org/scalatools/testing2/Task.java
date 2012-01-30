@@ -9,7 +9,7 @@ package org.scalatools.testing2;
  * to the client. The two subtypes provide two ways in which a framework can supply more tasks
  * to the client. <code>ReturningTask</code> returns an array of Tasks (which can be empty if there's
  * no more work to do.) <code>NotifyingTask</code> notifies the client of new Tasks via a
- * passed <code>Distributor</code>.
+ * passed <code>Notifier</code>.
  * </p>
  */
 public interface Task {

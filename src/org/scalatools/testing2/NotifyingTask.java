@@ -1,18 +1,26 @@
 package org.scalatools.testing2;
 
+/**
+ * A task that notifies the new client of new tasks to execute through a <code>Notifier</code> passed
+ * to its <code>execute</code> method.
+ */
 public interface NotifyingTask extends Task {
 
     /**
-     * Either executes tests and nested suites, or returns more tasks, or both.
+     * Execute a task, possibly notifying the client of new tasks via the
+     * passed <code>Notifier</code>.
      *
-     * If parallel (passed to initRun) is false, then ScalaTest would return tasks that run everything
-     * sequentially. If parallel is true, then ScalaTest would pass in a distributor that simply collects
-     * things passed to the distributor, then returns one task for anything placed in that distributor
-     * so that sbt can be responsible for parallelizing. Most often the tests directly defined in a
-     * suite would be run in this case, but nested suites would be wrapped in a task and returned in
-     * the array. If the suite mixes in ParallelTestExecution, though, then ScalaTest would also return
-     * one task per test in the suite, so that sbt could parallelize the test execution too.
+     * @param notifier a <code>Notifier</code> through which to notify the client of more
+     *                    tasks to execute
      */
-
-    void execute(Distributor distributor);
+    void execute(Notifier notifier);
 }
+/*
+ Note: If parallel (passed to Framework.testRunner) is false, then ScalaTest would return tasks
+ that run everything sequentially. If parallel is true, then ScalaTest would pass in a Distributor
+ that provides the client through the Notifier one new task for each suite placed in that distributor
+ so that the client can be responsible for parallelizing. Most often the tests directly defined in a
+ suite would be run in this case, but nested suites would be wrapped in a task and passed to the
+ notifier. If the suite mixes in ParallelTestExecution, though, then ScalaTest would also return
+ one task per test in the suite, so that the client could parallelize the test execution too.
+*/
