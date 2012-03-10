@@ -36,7 +36,7 @@ public interface Runner {
      * @return a task that when executed will run the passed test class
      * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
-    public Task task(String testClassName, TestId[] failedTestIds, String[] abortedSuiteIds);
+    public Task task(String testClassName, Selector[] selectors);
   // THIS needs to be -s, a possible -i, possible -ts, possibly more -is, etc.
     /**
      * Returns a test-framework specific summary string suitable for displaying to the user.
