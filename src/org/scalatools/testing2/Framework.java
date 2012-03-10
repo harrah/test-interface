@@ -43,3 +43,5 @@ public interface Framework {
         Boolean parallel
     );
 }
+
+// DIFFERENCE: Added parallel to testRunner

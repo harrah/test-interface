@@ -37,7 +37,7 @@ public interface Runner {
      * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
     public Task task(String testClassName, TestId[] failedTestIds, String[] abortedSuiteIds);
-
+  // THIS needs to be -s, a possible -i, possible -ts, possibly more -is, etc.
     /**
      * Returns a test-framework specific summary string suitable for displaying to the user.
      *
@@ -73,3 +73,14 @@ public interface Runner {
      */
     public String summarize(RunStatus completionStatus, boolean ansiCodesSupported);
 }
+    /*
+    send expected test count? For progress bars? add a way to notify a reporter of an
+    updated expected test count?
+
+    Change the org.scalatools package name?
+
+    Add a ThisJustInRevisedExpectedTestCount event.
+    ExpectedTestCountUpdated
+
+    Thanks Jon-Anders Teigen
+        */

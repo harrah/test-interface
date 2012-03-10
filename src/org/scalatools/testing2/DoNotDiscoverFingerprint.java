@@ -13,3 +13,5 @@ public interface DoNotDiscoverFingerprint extends Fingerprint
      */
     public String annotationName();
 }
+
+// Added this: for not discovering things

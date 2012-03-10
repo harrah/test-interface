@@ -24,3 +24,5 @@ public interface AnnotatedMethodsFingerprint extends Fingerprint
      */
     public String annotationName();
 }
+
+// DIFFERENCE: Added this, for JUnit/TestNG discovery?
