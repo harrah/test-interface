@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * An event that indicates a test was cancelled because of some unmet precondition.

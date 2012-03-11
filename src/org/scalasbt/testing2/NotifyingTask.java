@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * A task that notifies the new client of new tasks to execute through a <code>Notifier</code> passed

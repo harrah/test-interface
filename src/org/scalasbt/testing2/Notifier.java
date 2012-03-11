@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * An object into which a <em>notifying task</em> can place other tasks to execute.

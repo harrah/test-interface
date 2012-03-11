@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 // org.scalasbt.testing
 /**
  * Interface implemented by test frameworks.

@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * An enum for the different run completion statuses.

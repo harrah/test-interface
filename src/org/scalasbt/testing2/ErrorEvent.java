@@ -1,7 +1,7 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
- * An event that indicates a failure occurred, does not represent a
+ * An event that indicates an er    ror occurred that does not represent a
  * failed test or aborted suite.
  *
  * <p>
@@ -12,8 +12,8 @@ package org.scalatools.testing2;
  * such as a particular failed test or aborted suite.
  * </p>
  */
-public class FailureEvent implements Event {
-
+public class ErrorEvent implements Event {
+                   // NEED RERUN INFO
     private Throwable throwable;
 
     /**
@@ -23,7 +23,7 @@ public class FailureEvent implements Event {
      * @param throwable a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
      *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
      */
-    public FailureEvent(Throwable throwable) {
+    public ErrorEvent(Throwable throwable) {
         this.throwable = throwable;
     }
 
@@ -31,7 +31,7 @@ public class FailureEvent implements Event {
      * Constructs a new <code>ErrorEvent</code> with a <code>null</code>
      * <code>Throwable</code>.
      */
-    public FailureEvent() {
+    public ErrorEvent() {
         this.throwable = null;
     }
 

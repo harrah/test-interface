@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * Represents one run of a suite of tests.

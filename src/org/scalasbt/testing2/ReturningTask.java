@@ -1,4 +1,4 @@
-package org.scalatools.testing2;
+package org.scalasbt.testing2;
 
 /**
  * A task that may return from its <code>execute</code> method new tasks for the client
