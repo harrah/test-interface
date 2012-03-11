@@ -12,7 +12,7 @@ package org.scalasbt.testing;
  * such as a particular failed test or aborted suite.
  * </p>
  */
-public class FailureEvent implements Event {
+public class FailureEvent extends Event {
 
     private Throwable throwable;
 
@@ -23,7 +23,8 @@ public class FailureEvent implements Event {
      * @param throwable a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
      *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
      */
-    public FailureEvent(Throwable throwable) {
+    public FailureEvent(Descriptor descriptor, Throwable throwable) {
+        super(descriptor);
         this.throwable = throwable;
     }
 
@@ -31,7 +32,8 @@ public class FailureEvent implements Event {
      * Constructs a new <code>ErrorEvent</code> with a <code>null</code>
      * <code>Throwable</code>.
      */
-    public FailureEvent() {
+    public FailureEvent(Descriptor descriptor) {
+        super(descriptor);
         this.throwable = null;
     }
 

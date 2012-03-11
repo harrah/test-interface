@@ -1,6 +1,6 @@
 package org.scalasbt.testing;
 
-public class RerunInfo {
+public class Descriptor {
 
     private String testClassName;
     private Selector selector;
@@ -10,7 +10,7 @@ public class RerunInfo {
     // (XXX, null) rerun the entire XXX nested suite accessed via testClassName
     // (null, YYY) rerun the YYY test directly contained in testClassName
     // (XXX, YYY) rerun the YYY test in the XXX nested suite accessed via testClassName
-    public RerunInfo(String testClassName, Selector selector) {
+    public Descriptor(String testClassName, Selector selector) {
       if (testClassName == null) {
           throw new NullPointerException("testClassName was null");
       }
@@ -21,7 +21,7 @@ public class RerunInfo {
       this.selector = selector;
     }
 
-    public RerunInfo(String testClassName) {
+    public Descriptor(String testClassName) {
         this(testClassName, new SuiteSelector());
     }
 

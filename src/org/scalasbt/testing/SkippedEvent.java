@@ -9,6 +9,8 @@ package org.scalasbt.testing;
  * not fail or succeed, because it was not given a chance to run.
  * </p>
  */
-public class SkippedEvent implements Event {
-    // namme or test name etc and class name actaully put that in event
+public class SkippedEvent extends Event {
+    public SkippedEvent(Descriptor descriptor) {
+        super(descriptor);
+    }
 }

@@ -1,7 +1,7 @@
 package org.scalasbt.testing;
 
 /**
- * An event that indicates an er    ror occurred that does not represent a
+ * An event that indicates an error occurred that does not represent a
  * failed test or aborted suite.
  *
  * <p>
@@ -12,8 +12,8 @@ package org.scalasbt.testing;
  * such as a particular failed test or aborted suite.
  * </p>
  */
-public class ErrorEvent implements Event {
-                   // NEED RERUN INFO
+public class ErrorEvent extends Event {
+
     private Throwable throwable;
 
     /**
@@ -23,7 +23,8 @@ public class ErrorEvent implements Event {
      * @param throwable a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
      *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
      */
-    public ErrorEvent(Throwable throwable) {
+    public ErrorEvent(Descriptor descriptor, Throwable throwable) {
+        super(descriptor);
         this.throwable = throwable;
     }
 
@@ -31,7 +32,8 @@ public class ErrorEvent implements Event {
      * Constructs a new <code>ErrorEvent</code> with a <code>null</code>
      * <code>Throwable</code>.
      */
-    public ErrorEvent() {
+    public ErrorEvent(Descriptor descriptor) {
+        super(descriptor);
         this.throwable = null;
     }
 

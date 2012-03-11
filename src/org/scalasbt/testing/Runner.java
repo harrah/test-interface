@@ -31,8 +31,7 @@ public interface Runner {
      * passed test class name, failed test IDs, and aborted suite IDs.
      *
      * @param testClassName the fully qualified name of the test class to be run by the returned task
-     * @param failedTestIds a possibly empty array of Test IDs for failed tests to rerun
-     * @param abortedSuiteIds a possibly empty array of suite IDs for aborted suites to rerun
+     * @param selectors a possibly empty array Selectors determining suites and tests to run
      * @return a task that when executed will run the passed test class
      * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
