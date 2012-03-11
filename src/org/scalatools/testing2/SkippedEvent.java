@@ -10,4 +10,5 @@ package org.scalatools.testing2;
  * </p>
  */
 public class SkippedEvent implements Event {
+    // namme or test name etc and class name actaully put that in event
 }

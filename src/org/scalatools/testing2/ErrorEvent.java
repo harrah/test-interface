@@ -13,7 +13,7 @@ package org.scalatools.testing2;
  * </p>
  */
 public class ErrorEvent implements Event {
-
+                   // NEED RERUN INFO
     private Throwable throwable;
 
     /**

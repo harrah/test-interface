@@ -24,7 +24,7 @@ public interface Runner {
      * @return a task that when executed will run the test class whse name was passed
      * @throws IllegalStateException if invoked after <code>summarize</code> has been invoked.
      */
-    public Task task(String testClassName);
+    public Task task(String testClassName /* NEED FINGERPERINT TO DIFF BETW Class & Obj */);
 
     /**
      * Returns a task that when executed will rerun failed tests and aborted suites based on the

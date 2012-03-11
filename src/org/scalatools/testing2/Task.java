@@ -26,4 +26,11 @@ public interface Task {
      * @return a possibly zero length string array of this task's tags
      */
     String[] tags();
+
+    /**
+     * Execute a task, possibly returning to the client new tasks to execute.
+     *
+     * @return a possibly empty array of new tasks for the client to execute
+     */
+    Task[] execute();
 }

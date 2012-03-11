@@ -1,5 +1,5 @@
 package org.scalatools.testing2;
-
+// org.scalasbt.testing
 /**
  * Interface implemented by test frameworks.
  */
@@ -39,9 +39,12 @@ public interface Framework {
         String[] args,
         ClassLoader testClassLoader,
         EventHandler eventHandler,
-        Logger[] loggers,
-        Boolean parallel
+        Logger[] loggers//,
+        // Boolean parallel  BACK TO DRAWING BOARD
     );
 }
 
 // DIFFERENCE: Added parallel to testRunner
+
+// allow users to pass "sequential" and that will turn off the distrib!
+// Can I pass args to test

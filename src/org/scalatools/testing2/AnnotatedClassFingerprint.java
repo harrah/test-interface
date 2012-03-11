@@ -3,7 +3,8 @@ package org.scalatools.testing2;
 /**
  * Indicates that classes (and possibly modules) with a specific annotation
  * should be discovered as test classes.
- */
+ */ // Call it annotated fingerprint again
+ // TODO: MERGE THIS BACK and dioc that i tlooks at top level methods and class annotations
 public interface AnnotatedClassFingerprint extends Fingerprint
 {
     /**
@@ -12,7 +13,7 @@ public interface AnnotatedClassFingerprint extends Fingerprint
      *
      * <p>
      * If modules are not allowed by the test framework, they should return <code>false</code> for
-     * <code>considerModules</code>. Returning <code>false</code> will speed up discovery because
+     * <code>isModule</code>. Returning <code>false</code> will speed up discovery because
      * classes for modules can be quickly bypassed.
      * </p>
      */

@@ -12,11 +12,11 @@ public interface AnnotatedMethodsFingerprint extends Fingerprint
      *
      * <p>
      * If modules are not allowed by the test framework, they should return <code>false</code> for
-     * <code>considerModules</code>. Returning <code>false</code> will speed up discovery because
+     * <code>isModule</code>. Returning <code>false</code> will speed up discovery because
      * classes for modules can be quickly bypassed.
      * </p>
      */
-    public boolean considerModules();
+    public boolean isModule();
 
     /**
      * The name of the annotation that, when it appears on at least one top-level method of a class,

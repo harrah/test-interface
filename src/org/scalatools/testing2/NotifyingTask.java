@@ -14,7 +14,7 @@ public interface NotifyingTask extends Task {
      *                    tasks to execute
      */
     void execute(Notifier notifier);
-}
+}          // DROP
 /*
  Note: If parallel (passed to Framework.testRunner) is false, then ScalaTest would return tasks
  that run everything sequentially. If parallel is true, then ScalaTest would pass in a Distributor
