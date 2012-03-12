@@ -6,7 +6,7 @@ package org.scalasbt.testing;
  * <p>
  * The run represented by a <code>Runner</code> has a lifecycle. The run begins when the
  * <code>Runner</code> is instantiated by the framework and returned to the client during
- * a <code>Framework.testRunner</code> invocation. The run continues until the client
+ * a <code>Framework.runner</code> invocation. The run continues until the client
  * invokes <code>summarize</code> on the <code>Runner</code>. Before invoking <code>summarize</code>,
  * the client can invoke the <code>task</code> methods as many times at it wants, but once
  * <code>summarize</code> has been invoked, the <code>Runner</code> enters "spent" mode. Any

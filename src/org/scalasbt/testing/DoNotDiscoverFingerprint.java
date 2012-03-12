@@ -1,8 +1,8 @@
 package org.scalasbt.testing;
 
 /**
- * Indicates that classes (and possibly modules) with a specific annotation
- * should <em>not</em> be discovered as test classes, even if the class (or module) would otherwise
+ * Indicates that classes and modules with a specific annotation
+ * should <em>not</em> be discovered as test classes, even if the class or module would otherwise
  * be discoverable because of some other fingerprint.
  */
 public interface DoNotDiscoverFingerprint extends Fingerprint
@@ -14,4 +14,3 @@ public interface DoNotDiscoverFingerprint extends Fingerprint
     public String annotationName();
 }
 
-// Added this: for not discovering things

@@ -1,15 +1,12 @@
 package org.scalasbt.testing;
 
 /**
- * An event that indicates a failure occurred, does not represent a
- * failed test or aborted suite.
+ * An event that indicates a failure occurred.
  *
  * <p>
- * Unlike failed tests, which should be reported with <code>TestFailedEvent</code>s,
- * and aborted suites, which should be reported with <code>SuiteAbortedEvent</code>s,
- * an <code>ErrorEvent</code> does not include any information that can
- * be used to rerun just the problem portion of the previous run,
- * such as a particular failed test or aborted suite.
+ * Implementing test frameworks can decide how to differentiate between "failures" and
+ * "errors." JUnit reports assertion failures as "failures," and any other problems as "errors,"
+ * so many users may expect these meanings.
  * </p>
  */
 public class FailureEvent extends Event {
@@ -17,9 +14,11 @@ public class FailureEvent extends Event {
     private Throwable throwable;
 
     /**
-     * Constructs a new <code>ErrorEvent</code> with passed
+     * Constructs a new <code>ErrorEvent</code> with passed <code>Descriptor</code> and
      * <code>Throwable</code>.
      *
+     * @param descriptor the <code>Descriptor</code> that identifies the suite or test about
+     *                   which this event was fired.
      * @param throwable a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
      *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
      */
@@ -29,8 +28,11 @@ public class FailureEvent extends Event {
     }
 
     /**
-     * Constructs a new <code>ErrorEvent</code> with a <code>null</code>
+     * Constructs a new <code>ErrorEvent</code> with passed <code>Descriptor</code> and a <code>null</code>
      * <code>Throwable</code>.
+     *
+     * @param descriptor the <code>Descriptor</code> that identifies the suite or test about
+     *                   which this event was fired.
      */
     public FailureEvent(Descriptor descriptor) {
         super(descriptor);

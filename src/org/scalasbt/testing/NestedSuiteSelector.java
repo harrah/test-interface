@@ -1,5 +1,8 @@
 package org.scalasbt.testing;
 
+/**
+ *
+ */
 public class NestedSuiteSelector {
 
     private String suiteId;

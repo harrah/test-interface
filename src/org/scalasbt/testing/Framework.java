@@ -15,7 +15,7 @@ public interface Framework {
      * An array of <code>Fingerprint</code> that specify how to identify test classes during
      * discovery.
      */
-    public Fingerprint[] tests();
+    public Fingerprint[] fingerprints();
 
     /**
      * Initiates a run.
@@ -34,15 +34,11 @@ public interface Framework {
      * @throws IllegalStateException if the test framework is unable to initiate a run because it is
      *            already performing a previously initiated run that has not yet completed.
      */
-    public Runner testRunner(
-        String[] args,
-        ClassLoader testClassLoader,
-        EventHandler eventHandler,
-        Logger[] loggers
+    public Runner runner(
+            String[] args,
+            ClassLoader testClassLoader,
+            EventHandler eventHandler,
+            Logger[] loggers
     );
 }
 
-// DIFFERENCE: Added parallel to testRunner
-
-// allow users to pass "sequential" and that will turn off the distrib!
-// Can I pass args to test

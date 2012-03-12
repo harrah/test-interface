@@ -5,7 +5,7 @@ package org.scalasbt.testing;
  * during a run.
  *
  * <p>
- * An event handler is passed to the test framework via the <code>testRunner</code> method
+ * An event handler is passed to the test framework via the <code>runner</code> method
  * in <code>Framework</code>.
  * </p>
  */
