@@ -81,40 +81,5 @@ public interface Runner {
      *
      * @return true if the test framework sent a summary to the logger
      */
-    public Boolean done();
-
-    /* Nevermind.
-     * Returns a test-framework specific summary string suitable for displaying to the user.
-     *
-     * <p>
-     * If the passed <code>ansiCodesSupported</code> is false, the returned summary string should not
-     * contain ANSI color commands. If true, the returned summary string may contain ANSI
-     * color commands.
-     * </p>
-     *
-     * <p>
-     * The client can decide whether to actually show the summary string to the user.
-     * For example, if only using one test framework, it user would probably prefer that the
-     * client show the test-framework specific summary string, because it will look the same
-     * as the summary they see when using the test framework directly (i.e., not through the
-     * client). But if they are using multiple test frameworks, it may be better to show
-     * a single, more general client-defined summary.
-     * </p>
-     *
-     * <p>
-     * The invocation of this method signals the end of the run. In addition to creating and
-     * returning the summary string, the test framework should clean up any resources
-     * associated with the run. The <code>Runner</code> is "spent" after <code>summarize</code> returns and
-     * cannot be reused. Any subsequent invocations of a <code>task</code> method will be met with
-     * <code>IllegalStateException</code>s.
-     * </p>
-     *
-     * @param completionStatus indicates whether the run completed normally, or aborted or was
-     *                         requested to stop (information which the test framework may use to
-     *                         construct its summary string).
-     * @param ansiCodesSupported indicates whether the summary string may contain ANSI color commands.
-     *
-     * @return a test-framework-specific string summarizing the test run
-     */
-    //public String summarize(RunStatus completionStatus, boolean ansiCodesSupported);
+    public boolean done();
 }
