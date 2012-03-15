@@ -14,36 +14,57 @@ public class FailureEvent extends Event {
     private Throwable throwable;
 
     /**
-     * Constructs a new <code>ErrorEvent</code> with passed <code>Descriptor</code> and
-     * <code>Throwable</code>.
+     * Constructs a new <code>FailureEvent</code> with passed fully qualified name, isModule flag, selector,
+     * and <code>Throwable</code>.
      *
-     * @param descriptor the <code>Descriptor</code> that identifies the suite or test about
-     *                   which this event was fired.
-     * @param throwable a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
+     * <p>
+     * The passed <code>Throwable</code> may not be null. If you wish to indicate no <code>Throwable</code> is
+     * associated with this event, you must use the other constructor.
+     * </p>
+     *
+     *
+     * @param fullyQualifiedName the fully qualified name of a class that can rerun the suite or test
+     *                           about which an event was fired
+     * @param isModule indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
+     *          fullyQualifiedName parameter does not include the trailing dollar sign.
+     * @param selector additional information identifying the suite or test about which an event was fired
+     * @param throwable a <code>Throwable</code> associated with this <code>FailureEvent</code>,
      *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
+     *
+     * @throws NullPointerException if <code>fullyQualifiedName</code>, <code>selector</code>, or
+     *     <code>throwable</code> is null.
      */
-    public FailureEvent(Descriptor descriptor, Throwable throwable) {
-        super(descriptor);
+    public FailureEvent(String fullyQualifiedName, boolean isModule, Selector selector, Throwable throwable) {
+        super(fullyQualifiedName, isModule, selector);
+        if (throwable == null) {
+            throw new NullPointerException("throwable was null");
+        }
         this.throwable = throwable;
     }
 
     /**
-     * Constructs a new <code>ErrorEvent</code> with passed <code>Descriptor</code> and a <code>null</code>
-     * <code>Throwable</code>.
+     * Constructs a new <code>FailureEvent</code> with passed fully qualified name, isModule flag, selector,
+     * and a <code>null</code> <code>Throwable</code>.
      *
-     * @param descriptor the <code>Descriptor</code> that identifies the suite or test about
-     *                   which this event was fired.
+     *
+     * @param fullyQualifiedName the fully qualified name of a class that can rerun the suite or test
+     *                           about which an event was fired
+     * @param isModule indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
+     *          fullyQualifiedName parameter does not include the trailing dollar sign.
+     * @param selector additional information identifying the suite or test about which an event was fired
+     *
+     * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code>is null.
      */
-    public FailureEvent(Descriptor descriptor) {
-        super(descriptor);
+    public FailureEvent(String fullyQualifiedName, boolean isModule, Selector selector) {
+        super(fullyQualifiedName, isModule, selector);
         this.throwable = null;
     }
 
     /**
-     * Returns the <code>Throwable</code> that caused this <code>ErrorEvent</code>, or
+     * Returns the <code>Throwable</code> that caused this <code>FailureEvent</code>, or
      *          <code>null</code> if no <code>Throwable</code> was associated with this event.
      *
-     * @return the <code>Throwable</code> passed to this <code>ErrorEvent</code>, or
+     * @return the <code>Throwable</code> passed to this <code>FailureEvent</code>, or
      *          <code>null</code>, if no <code>Throwable</code> was passed.
      */
     public Throwable throwable() {

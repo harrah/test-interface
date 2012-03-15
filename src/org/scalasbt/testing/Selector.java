@@ -10,13 +10,13 @@ package org.scalasbt.testing;
  *
  * <ul>
  * <li><code>SuiteSelector</code> - indicates an event is about an entire suite of tests whose
- * class was reported as <code>testClassName</code> in the <code>Descriptor</code></li>
+ * class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * <li><code>TestSelector</code> - indicates an event is about a single test directly contained
- * in the suite whose class was reported as <code>testClassName</code> in the <code>Descriptor</code></li>
+ * in the suite whose class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * <li><code>NestedSuiteSelector</code> - indicates an event is about an entire suite of tests whose
- * class was reported as <code>testClassName</code> in the <code>Descriptor</code></li>
+ * class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * <li><code>NestedTestSelector</code> - indicates an event is about a single test directly contained
- * in the suite whose class was reported as <code>testClassName</code> in the <code>Descriptor</code></li>
+ * in the suite whose class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * </ul>
  */
 abstract public class Selector {

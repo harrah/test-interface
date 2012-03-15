@@ -18,30 +18,32 @@ public interface Runner {
 
     /**
      * Returns a task that when executed will run the test class whose name is passed as
-     * <code>testClassName</code>.
+     * <code>fullyQualifiedName</code>.
      *
      * <p>
      * The client can use this method to obtain tasks that will run test classes discovered
      * via a <code>Fingerprint</code>.
      * </p>
      *
-     * @param testClassName the fully qualified name of the test class to be run by the returned task
-     * @param fingerprint the fingerprint that was used to
+     * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
+     * @param fingerprint the fingerprint that was used to discover this class
      * @return a task that when executed will run the test class whose name was passed
      * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
      */
-    public Task task(String testClassName, Fingerprint fingerprint);
-              // TODO: Do we need a isModule in the event Descriptor and maybe in the selectors?
+    public Task task(String fullyQualifiedName, Fingerprint fingerprint);
+
     /**
      * Returns a task that when executed will run tests and suites determined by the
      * passed test class name and selectors.
      *
-     * @param testClassName the fully qualified name of the test class to be run by the returned task
+     * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
+     * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName
+     *                 parameter does not include the trailing dollar sign
      * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
      * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
      * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
      */
-    public Task task(String testClassName, Selector[] selectors);
+    public Task task(String fullyQualifiedName, boolean isModule, Selector[] selectors);
 
     /**
      * Indicates the client is done with this <code>Runner</code> instance.
