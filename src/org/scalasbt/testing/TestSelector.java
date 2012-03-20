@@ -5,7 +5,7 @@ package org.scalasbt.testing;
  * whose class had the fully qualified name specified as the <code>fullyQualifiedName</code> attribute
  * passed to the event.
  */
-public class TestSelector {
+public class TestSelector  extends Selector {
     
     private String testName;
 
