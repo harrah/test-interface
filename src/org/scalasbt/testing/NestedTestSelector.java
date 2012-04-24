@@ -4,7 +4,7 @@ package org.scalasbt.testing;
  * Information in addition to a test class name that identifies a test in a nested suite about which an
  * event was fired.
  */
-public class NestedTestSelector extends Selector {
+public final class NestedTestSelector extends Selector {
 
     private String suiteId;
     private String testName;

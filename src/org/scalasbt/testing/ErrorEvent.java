@@ -9,7 +9,7 @@ package org.scalasbt.testing;
  * so many users may expect these meanings.
  * </p>
  */
-public class ErrorEvent extends Event {
+public final class ErrorEvent extends Event {
 
     private Throwable throwable;
 

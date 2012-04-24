@@ -9,7 +9,7 @@ package org.scalasbt.testing;
  * not fail or succeed, because it was not given a chance to run.
  * </p>
  */
-public class SkippedEvent extends Event {
+public final class SkippedEvent extends Event {
 
     /**
      * Constructs a new <code>SkippedEvent</code> with passed fully qualified name, isModule flag, and selector.

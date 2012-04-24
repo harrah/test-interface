@@ -3,7 +3,7 @@ package org.scalasbt.testing;
 /**
  * Indicates a test succeeded.
  */
-public class SuccessEvent extends Event {
+public final class SuccessEvent extends Event {
 
     /**
      * Constructs a new <code>SuccessEvent</code> with passed fully qualified name, isModule flag, and selector.
