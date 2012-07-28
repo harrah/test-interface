@@ -1,6 +1,6 @@
 package org.scalatools.testing;
 
-/** A basic interface to provide feedback.   Note that the logging methods are not call-by-name as
+/** A basic interface to provide feedback!   Note that the logging methods are not call-by-name as
 * a Scala interface would be.  We could define a Function0 interface if we find that this is a problem.*/
 public interface Logger
 {
