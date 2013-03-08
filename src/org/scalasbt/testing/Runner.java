@@ -27,10 +27,13 @@ public interface Runner {
      *
      * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
      * @param fingerprint the fingerprint that was used to discover this class
+     * @param eventHandler an event handler to which to fire events during the run
+     * @param loggers an array of loggers to which to emit log messages during the run
      * @return a task that when executed will run the test class whose name was passed
      * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
      */
-    public Task task(String fullyQualifiedName, Fingerprint fingerprint);
+    public Task task(String fullyQualifiedName, Fingerprint fingerprint, EventHandler eventHandler,
+                     Logger[] loggers);
 
     /**
      * Returns a task that when executed will run tests and suites determined by the
@@ -40,10 +43,13 @@ public interface Runner {
      * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName
      *                 parameter does not include the trailing dollar sign
      * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
+     * @param eventHandler an event handler to which to fire events during the run
+     * @param loggers an array of loggers to which to emit log messages during the run
      * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
      * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
      */
-    public Task task(String fullyQualifiedName, boolean isModule, Selector[] selectors);
+    public Task task(String fullyQualifiedName, boolean isModule, Selector[] selectors, EventHandler eventHandler,
+                     Logger[] loggers);
 
     /**
      * Indicates the client is done with this <code>Runner</code> instance.

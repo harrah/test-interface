@@ -27,8 +27,6 @@ public interface Framework {
      * </p>
      * @param args the test-framework-specific arguments for the new run
      * @param testClassLoader a class loader to use when loading test classes during the run
-     * @param eventHandler an event handler to which to fire events during the run
-     * @param loggers an array of loggers to which to emit log messages during the run
      *
      * @return a <code>Runner</code> representing the newly started run.
      * @throws IllegalStateException if the test framework is unable to initiate a run because it is
@@ -36,9 +34,7 @@ public interface Framework {
      */
     public Runner runner(
             String[] args,
-            ClassLoader testClassLoader,
-            EventHandler eventHandler,
-            Logger[] loggers
+            ClassLoader testClassLoader
     );
 }
 
