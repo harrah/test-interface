@@ -1,5 +1,7 @@
 package org.scalasbt.testing;
 
+import java.io.Serializable;
+
 /**
  * Information in addition to a test class name that identifies the suite or test about which an
  * event was fired.
@@ -19,5 +21,5 @@ package org.scalasbt.testing;
  * in the suite whose class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * </ul>
  */
-abstract public class Selector {
+abstract public class Selector implements Serializable {
 }
