@@ -26,6 +26,7 @@ public interface Framework {
      * cannot perform the two runs concurrently.
      * </p>
      * @param args the test-framework-specific arguments for the new run
+     * @param remoteArgs the test-framework-specific remote arguments for the run in forked jvm
      * @param testClassLoader a class loader to use when loading test classes during the run
      *
      * @return a <code>Runner</code> representing the newly started run.
@@ -34,6 +35,7 @@ public interface Framework {
      */
     public Runner runner(
             String[] args,
+            String[] remoteArgs,
             ClassLoader testClassLoader
     );
 }

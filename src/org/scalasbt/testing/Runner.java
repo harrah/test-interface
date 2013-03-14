@@ -90,4 +90,24 @@ public interface Runner {
      * @return true if the test framework sent a summary to the logger
      */
     public boolean done();
+
+    /**
+     * Start skeleton to handle remote communication from forked JVM, this is used when running tests in fork mode.
+     *
+     * @return an array of argument that will be passed to Runner in sub-process as remoteArgs.
+     */
+    public String[] startSkeleton();
+
+    /**
+     * Dispose all skeletons created, this method is called only when running tests in fork mode.
+     * It should block until all skeletons finish their jobs and dispose.
+     */
+    public void disposeSkeletons();
+
+    /**
+     * Return arguments that is used to create this Runner.
+     *
+     * @return an array of argument that is used to create this Runner.
+     */
+    public String[] args();
 }
