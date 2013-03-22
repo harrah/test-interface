@@ -87,9 +87,15 @@ public interface Runner {
      * may use the return value of <code>done</code> to decide whether to display its own summary message.
      * </p>
      *
-     * @return true if the test framework sent a summary to the logger
+     * <p>
+     * The test framework may return an array of string (i.e., a message giving total tests succeeded, failed and
+     * so on) to sbt.  sbt can then print it out, or in case of multiple test frameworks is running, sbt will
+     * ignore it and print using its own summary.
+     * </p>
+     *
+     * @return array of string for sbt to print out as summary
      */
-    public boolean done();
+    public String[] done();
 
     /**
      * Remote args that will be passed to Runner in sub-process as remoteArgs.
