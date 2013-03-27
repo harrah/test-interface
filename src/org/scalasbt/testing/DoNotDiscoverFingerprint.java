@@ -7,10 +7,10 @@ package org.scalasbt.testing;
  */
 public interface DoNotDiscoverFingerprint extends Fingerprint
 {
-    /**
-     * The fully qualified name of the annotation that indicates a class or module should
-     * <em>not</em> be discovered.
-     */
-    public String annotationName();
+	/**
+	 * The fully qualified name of the annotation that indicates a class or module should
+	 * <em>not</em> be discovered.
+	 */
+	public String annotationName();
 }
 

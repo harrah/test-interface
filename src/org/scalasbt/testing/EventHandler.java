@@ -9,12 +9,13 @@ package org.scalasbt.testing;
  * in <code>Framework</code>.
  * </p>
  */
-public interface EventHandler {
+public interface EventHandler 
+{
 
-    /**
-     * Handle an event.
-     *
-     * @param event the event to handle
-     */
-    public void handle(Event event);
+	/**
+	 * Handle an event.
+	 *
+	 * @param event the event to handle
+	 */
+	public void handle(Event event);
 }
