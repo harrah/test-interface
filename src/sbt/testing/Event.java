@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * An event fired by the test framework during a run.

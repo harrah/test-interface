@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * Indicates that classes or modules with a specific annotation, either on at least one top level

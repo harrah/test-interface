@@ -1,11 +1,11 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * Information in addition to a test class name that identifies a test directly contained in the suite
  * whose class had the fully qualified name specified as the <code>fullyQualifiedName</code> attribute
  * passed to the event.
  */
-public final class TestSelector extends Selector 
+public final class TestSelector extends Selector
 {
 
 	private String testName;

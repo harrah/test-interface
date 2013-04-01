@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * Information in addition to a test class name that identifies a test in a nested suite about which an

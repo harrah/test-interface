@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * Indicates an event was about the entire suite whose class had the fully qualified name specified as

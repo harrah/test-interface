@@ -1,6 +1,4 @@
-package org.scalasbt.testing;
-
-import java.io.Serializable;
+package sbt.testing;
 
 /**
  * Information in addition to a test class name that identifies the suite or test about which an
@@ -21,4 +19,4 @@ import java.io.Serializable;
  * in the suite whose class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * </ul>
  */
-abstract public class Selector implements Serializable {}
+abstract public class Selector {}

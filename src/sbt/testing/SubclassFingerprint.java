@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 /**
  * Indicates that classes (and possibly modules) that extend a particular superclass,

@@ -1,4 +1,4 @@
-package org.scalasbt.testing;
+package sbt.testing;
 
 public enum Status 
 {
