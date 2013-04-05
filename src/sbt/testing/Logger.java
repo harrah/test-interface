@@ -8,6 +8,10 @@ package sbt.testing;
  * for events intended to be consumed by the client software whereas the logger is
  * for messages intended to be consumed by the client *user* (i.e., a human).
  * </p>
+ *
+ * <p>
+ * Implementation of this interface must be thread-safe.
+ * </p>
  */
 public interface Logger
 {

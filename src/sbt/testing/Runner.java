@@ -92,7 +92,7 @@ public interface Runner
 	public String[] done();
 
 	/**
-	 * Remote args that will be passed to Runner in sub-process as remoteArgs.
+	 * Remote args that will be passed to Runner in sub-process as remoteArgs.  This method must not return null.
 	 *
 	 * @return an array of argument that will be passed to Runner in sub-process as remoteArgs.
 	 */
