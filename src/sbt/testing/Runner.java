@@ -76,20 +76,19 @@ public interface Runner
 	 *
 	 * <p>
 	 * The test framework may send a summary (i.e., a message giving total tests succeeded, failed, and
-	 * so on) to the user via a log message. If so, it should return
-	 * <code>true</code> from <code>done</code>. If not, it should return <code>false</code>. The client
-	 * may use the return value of <code>done</code> to decide whether to display its own summary message.
+	 * so on) to the user via a log message. If so, it should return the summary from <code>done</code>.
+     * If not, it should return an empty string. The client may use the return value of <code>done</code>
+     * to decide whether to display its own summary message.
 	 * </p>
 	 *
 	 * <p>
-	 * The test framework may return an array of string (i.e., a message giving total tests succeeded, failed and
-	 * so on) to sbt.  sbt can then print it out, or in case of multiple test frameworks is running, sbt will
-	 * ignore it and print using its own summary.
+	 * The test framework may return a multi-lines string (i.e., a message giving total tests succeeded, failed and
+	 * so on) to sbt
 	 * </p>
 	 *
-	 * @return array of string for sbt to print out as summary
+	 * @return string for sbt to print out as summary
 	 */
-	public String[] done();
+	public String done();
 
 	/**
 	 * Remote args that will be passed to Runner in sub-process as remoteArgs.  This method must not return null.
