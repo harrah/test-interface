@@ -18,24 +18,12 @@ public interface Runner
 {
 
 	/**
-	 * Returns a task that when executed will run the test class whose name is passed as
-	 * <code>fullyQualifiedName</code>.
-	 *
-	 * <p>
-	 * The client can use this method to obtain tasks that will run test classes discovered
-	 * via a <code>Fingerprint</code>.
-	 * </p>
-	 *
-	 * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
-	 * @param fingerprint the fingerprint that was used to discover this class
-	 * @return a task that when executed will run the test class whose name was passed
-	 * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
-	 */
-	public Task task(String fullyQualifiedName, Fingerprint fingerprint);
-
-	/**
 	 * Returns a task that when executed will run tests and suites determined by the
 	 * passed test class name and selectors.
+         *
+         * Explicitly specified means they typed test-only com.mycompany.myproject.WholeNameSpec, which in the
+         * ScalaTest case will cause Scalatset to ignore a DoNotDiscover annotation. Empty array means
+         * just run the whole suite without any narrower selection.
 	 *
 	 * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
 	 * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName parameter does not include the trailing dollar sign
@@ -43,7 +31,7 @@ public interface Runner
 	 * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
 	 * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
 	 */
-	public Task task(String fullyQualifiedName, boolean isModule, Selector[] selectors);
+	public Task task(String fullyQualifiedName, boolean isModule, boolean explicitlySpecified, Selector[] selectors);
 
 	/**
 	 * Indicates the client is done with this <code>Runner</code> instance.
