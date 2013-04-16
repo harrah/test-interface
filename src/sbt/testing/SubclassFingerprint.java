@@ -23,4 +23,9 @@ public interface SubclassFingerprint extends Fingerprint
 	 * classes to be discovered.
 	 */
 	public String superclassName();
+
+    /**
+     * Indicates whether the discovered class requires no argument constructor.
+     */
+    public boolean requireNoArgConstructor();
 }
