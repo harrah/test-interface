@@ -22,11 +22,12 @@ public interface Runner
 	 * passed test class name and selectors.
          *
          * Explicitly specified means they typed test-only com.mycompany.myproject.WholeNameSpec, which in the
-         * ScalaTest case will cause Scalatset to ignore a DoNotDiscover annotation. Empty array means
+         * ScalaTest case will cause ScalaTest to ignore a DoNotDiscover annotation. Empty array means
          * just run the whole suite without any narrower selection.
 	 *
 	 * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
 	 * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName parameter does not include the trailing dollar sign
+     * @param explicitlySpecified indicates whether the test class is explicitly specified by user.
 	 * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
 	 * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
 	 * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
