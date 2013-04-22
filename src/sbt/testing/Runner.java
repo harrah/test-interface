@@ -26,13 +26,13 @@ public interface Runner
          * just run the whole suite without any narrower selection.
 	 *
 	 * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
-	 * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName parameter does not include the trailing dollar sign
+	 * @param fingerprint indicates how the test suite was identified as a test suite.  This method may be called with the same value for 'testClassName' but different fingerprints.  For example, if both a class and its companion object were tests, this method would be called with the same name but with a different value for 'fingerprint.isModule'.
      * @param explicitlySpecified indicates whether the test class is explicitly specified by user.
 	 * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
 	 * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
 	 * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
 	 */
-	public Task task(String fullyQualifiedName, boolean isModule, boolean explicitlySpecified, Selector[] selectors);
+	public Task task(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors);
 
 	/**
 	 * Indicates the client is done with this <code>Runner</code> instance.
