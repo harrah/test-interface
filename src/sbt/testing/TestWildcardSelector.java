@@ -1,18 +1,26 @@
 package sbt.testing;
 
 /**
- * Information in addition to a test class name that identifies a test directly contained in the suite
- * whose class had the fully qualified name specified as the <code>fullyQualifiedName</code> attribute
- * passed to the event.
+ * Information that identifies zero to many tests directly contained in a test class.
+ *
+ * <p>
+ * The <code>testWildcard</code> is a simple string, <em>i.e.</em>, not a glob or regular expression.
+ * Any test whose name includes the <code>testWildcard</code> string as a substring will be selected.
+ * </p>
  */
 public final class TestWildcardSelector extends Selector
 {
 	private String testWildcard;
 
 	/**
-	 * Constructs a new <code>TestSelector</code> with passed <code>testName</code>.
+	 * Constructs a new <code>TestSelector</code> with passed <code>testWildcard</code>.
+         *
+         * <p>
+         * The <code>testWildcard</code> is a simple string, <em>i.e.</em>, not a glob or regular expression.
+         * Any test whose name includes the <code>testWildcard</code> string as a substring will be selected.
+         * </p>
 	 *
-	 * @param testName the name of the test about which an event as fired.
+	 * @param testWildcard a string used to select tests.
 	 */
 	public TestWildcardSelector(String testWildcard) 
 	{
@@ -24,12 +32,18 @@ public final class TestWildcardSelector extends Selector
 	}
 
 	/**
-	 * The name of a test about which an event was fired.
+	 * A test wildcard string used to select tests.
 	 *
-	 * @return the name of the test
+         * <p>
+         * The <code>testWildcard</code> is a simple string, <em>i.e.</em>, not a glob or regular expression.
+         * Any test whose name includes the <code>testWildcard</code> string as a substring will be selected.
+         * </p>
+	 *
+	 * @return the test wildcard string used to select tests.
 	 */
 	public String getTestWildcard() 
 	{
 		return testWildcard;
 	}
 }
+
