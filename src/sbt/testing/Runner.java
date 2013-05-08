@@ -19,10 +19,10 @@ public interface Runner
 
 	/**
 	 * Returns a task that when executed will run tests and suites determined by the
-	 * passed test class name and selectors.
+	 * passed test class name, fingerprints, "explicitly specified" flag, and selectors.
          *
          * <p>
-         * Explicitly specified means the user supplied a complete fully qualified test name, such as with the command:
+         * "Explicitly specified" means the user supplied a complete fully qualified test name, such as with the command:
          * </p>
          *
          * <pre>
@@ -58,6 +58,10 @@ public interface Runner
          * for <code>fingerprint.isModule</code>.
          * </p>
          *
+         * <p>
+         * A test framework may "reject" a requested task by returning a <code>Task</code> that does nothing.
+         * </p>
+	 *
 	 * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
 	 * @param fingerprint indicates how the test suite was identified as a test suite.
          * @param explicitlySpecified indicates whether the test class is explicitly specified by user.
