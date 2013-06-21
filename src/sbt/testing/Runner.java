@@ -69,7 +69,7 @@ public interface Runner
 	 * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
 	 * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
 	 */
-	public Task task(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors);
+	public Task[] tasks(TaskDef[] taskDefs);
 
 	/**
 	 * Indicates the client is done with this <code>Runner</code> instance.
