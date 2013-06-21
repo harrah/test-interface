@@ -13,10 +13,12 @@ public interface Event
 	String fullyQualifiedName();
 
 	/**
-	 * Indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
-	 *          fullyQualifiedName string does not include the trailing dollar sign.
+	 * The fingerprint of the test class whose fully qualifed name is returned by the <code>fullyQualifiedName</code>
+         *     method on this <code>Event</code>. If the <code>isModule</code> method of the fingerprint indicates that the
+         *     <code>fullyQualifiedName</code> refers to a module (singleton object), the
+	 *     <code>fullyQualifiedName</code> string does not include the trailing dollar sign.
 	 */
-	boolean isModule();
+	Fingerprint fingerprint();
 
 	/**
 	 * Additional information identifying the suite or test about which an event was fired. This
