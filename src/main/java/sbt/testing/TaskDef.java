@@ -53,32 +53,32 @@ package sbt.testing;
  * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
  */
 public class TaskDef {
-    private String fullyQualifiedName;
-    private Fingerprint fingerprint;
-    private boolean explicitlySpecified;
-    private Selector[] selectors;
+    private String theFullyQualifiedName;
+    private Fingerprint theFingerprint;
+    private boolean theExplicitlySpecified;
+    private Selector[] theSelectors;
 
     // TODO: Check for null and throw NPE
     TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
-      this.fullyQualifiedName = fullyQualifiedName;
-      this.fingerprint = fingerprint;
-      this.explicitlySpecified = explicitlySpecified;
-      this.selectors = selectors;
+      this.theFullyQualifiedName = fullyQualifiedName;
+      this.theFingerprint = fingerprint;
+      this.theExplicitlySpecified = explicitlySpecified;
+      this.theSelectors = selectors;
     }
 
-    public String getFullyQualifiedName() {
-      return fullyQualifiedName;
+    public String fullyQualifiedName() {
+      return theFullyQualifiedName;
     }
 
-    public Fingerprint getFingerprint() {
-      return fingerprint;
+    public Fingerprint fingerprint() {
+      return theFingerprint;
     }
 
-    public boolean getExplicitlySpecified() {
-      return explicitlySpecified;
+    public boolean explicitlySpecified() {
+      return theExplicitlySpecified;
     }
 
-    public Selector[] getSelectors() {
-      return selectors;
+    public Selector[] selectors() {
+      return theSelectors;
     }
 }

@@ -8,7 +8,7 @@ package sbt.testing;
 public final class TestSelector extends Selector
 {
 
-	private String testName;
+	private String theTestName;
 
 	/**
 	 * Constructs a new <code>TestSelector</code> with passed <code>testName</code>.
@@ -21,7 +21,7 @@ public final class TestSelector extends Selector
 		{
 			throw new NullPointerException("testName was null");
 		}
-		this.testName = testName;
+		theTestName = testName;
 	}
 
 	/**
@@ -29,8 +29,18 @@ public final class TestSelector extends Selector
 	 *
 	 * @return the name of the test
 	 */
-	public String getTestName() 
+	public String testName() 
 	{
-		return testName;
+		return theTestName;
 	}
+
+  @Override public boolean equals(Object o) {
+    boolean retVal = false;
+    if (o instanceof TestSelector) {
+      TestSelector ts = (TestSelector) o;
+      retVal = ts.theTestName == theTestName;
+    }
+    return retVal;
+  }
 }
+
