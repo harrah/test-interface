@@ -44,7 +44,23 @@ class TaskDefSpec extends UnitSpec {
         td2.explicitlySpecified shouldBe true
         td2.selectors shouldBe Array(new TestSelector("it should do something"))
     }
+    def `should throw NPE from constructor of null passed` {
+      val fullyQualifiedName: String = "com.myproject.SomeSpec"
+      val fingerprint: Fingerprint = SuiteSubclassFingerprint
+      val selectors: Array[Selector] = Array(new SuiteSelector)
+      val invalidCombos =
+        Table(
+          ("fullyQualifiedName", "fingerprint", "selectors"),
+          (        null        ,  fingerprint ,  selectors ),
+          ( fullyQualifiedName ,     null     ,  selectors ),
+          ( fullyQualifiedName ,  fingerprint ,    null    )
+        )
+      forAll (invalidCombos) { (fqn, fp, sel) =>
+        a [NullPointerException] should be thrownBy {
+          new TaskDef(fqn, fp, false, sel)
+        }
+      }
+    }
   }
 }
-// TODO equals and hashcode on these classes
 

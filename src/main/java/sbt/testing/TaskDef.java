@@ -61,6 +61,17 @@ public class TaskDef {
 
   // TODO: Check for null and throw NPE
   TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
+
+    if (fullyQualifiedName == null) {
+      throw new NullPointerException("fullyQualifiedName was null");
+    }
+    if (fingerprint == null) {
+      throw new NullPointerException("fingerprint was null");
+    }
+    if (selectors == null) {
+      throw new NullPointerException("selectors was null");
+    }
+
     this._fullyQualifiedName = fullyQualifiedName;
     this._fingerprint = fingerprint;
     this._explicitlySpecified = explicitlySpecified;
