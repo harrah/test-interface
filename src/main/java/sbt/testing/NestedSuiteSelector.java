@@ -29,4 +29,17 @@ public final class NestedSuiteSelector extends Selector {
   public String suiteId() {
     return _suiteId;
   }
+
+  @Override public boolean equals(Object o) {
+    boolean retVal = false;
+    if (o instanceof NestedSuiteSelector) {
+      NestedSuiteSelector nss = (NestedSuiteSelector) o;
+      retVal = nss._suiteId == _suiteId;
+    }
+    return retVal;
+  }
+
+  @Override public int hashCode() {
+    return _suiteId.hashCode();
+  }
 }
