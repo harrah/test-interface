@@ -9,4 +9,8 @@ public final class SuiteSelector extends Selector {
   @Override public boolean equals(Object o) {
     return o instanceof SuiteSelector;
   }
+
+  @Override public int hashCode() {
+    return 29;
+  }
 }
