@@ -44,7 +44,7 @@ class TaskDefSpec extends UnitSpec {
         td2.explicitlySpecified shouldBe true
         td2.selectors shouldBe Array(new TestSelector("it should do something"))
     }
-    def `should throw NPE from constructor of null passed` {
+    def `should throw NPE from constructor if null passed` {
       val fullyQualifiedName: String = "com.myproject.SomeSpec"
       val fingerprint: Fingerprint = SuiteSubclassFingerprint
       val selectors: Array[Selector] = Array(new SuiteSelector)

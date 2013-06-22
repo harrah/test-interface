@@ -44,4 +44,22 @@ public final class NestedTestSelector extends Selector {
   public String testName() {
     return _testName;
   }
+
+  @Override public boolean equals(Object o) {
+    boolean retVal = false;
+    if (o instanceof NestedTestSelector) {
+      NestedTestSelector nts = (NestedTestSelector) o;
+      retVal =
+        nts._suiteId.equals(_suiteId) && 
+        nts._testName.equals(_testName);
+    }
+    return retVal;
+  }
+
+  @Override public int hashCode() {
+    int retVal = 17;
+    retVal = 31 * retVal + _suiteId.hashCode();
+    retVal = 31 * retVal + _testName.hashCode();
+    return retVal;
+  }
 }

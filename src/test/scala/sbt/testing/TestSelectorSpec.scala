@@ -26,7 +26,7 @@ class TestSelectorSpec extends UnitSpec {
       blueTestSelector.hashCode shouldEqual blueTestSelector.hashCode
       blueTestSelector.hashCode shouldEqual (new TestSelector("blue")).hashCode
     }
-    def `should throw NPE from constructor of null passed` {
+    def `should throw NPE from constructor if null passed` {
       a [NullPointerException] should be thrownBy {
         new TestSelector(null)
       }
