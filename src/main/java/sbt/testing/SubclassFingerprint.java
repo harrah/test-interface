@@ -18,7 +18,7 @@ public interface SubclassFingerprint extends Fingerprint {
   public boolean isModule();
 
   /**
-   * The name of the superclass or supertriat that identifies classes (and possibly modules) as test
+   * The name of the superclass or supertrait that identifies classes (and possibly modules) as test
    * classes to be discovered.
    */
   public String superclassName();
