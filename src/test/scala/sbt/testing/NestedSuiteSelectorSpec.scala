@@ -31,6 +31,10 @@ class NestedSuiteSelectorSpec extends UnitSpec {
         new NestedSuiteSelector(null)
       }
     }
+    def `should have a pretty toString` {
+      redNestedSuiteSelector.toString shouldEqual "NestedSuiteSelector(red)"
+      blueNestedSuiteSelector.toString shouldEqual "NestedSuiteSelector(blue)"
+    }
   }
 }
 

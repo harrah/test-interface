@@ -42,5 +42,9 @@ public final class TestSelector extends Selector {
   @Override public int hashCode() {
     return _testName.hashCode();
   }
+
+  @Override public String toString() {
+    return "TestSelector(" + _testName + ")";
+  }
 }
 

@@ -31,6 +31,10 @@ class TestSelectorSpec extends UnitSpec {
         new TestSelector(null)
       }
     }
+    def `should have a pretty toString` {
+      redTestSelector.toString shouldEqual "TestSelector(red)"
+      blueTestSelector.toString shouldEqual "TestSelector(blue)"
+    }
   }
 }
 

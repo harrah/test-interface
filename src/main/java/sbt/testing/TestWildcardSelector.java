@@ -55,5 +55,9 @@ public final class TestWildcardSelector extends Selector {
   @Override public int hashCode() {
     return _testWildcard.hashCode();
   }
+
+  @Override public String toString() {
+    return "TestWildcardSelector(" + _testWildcard + ")";
+  }
 }
 

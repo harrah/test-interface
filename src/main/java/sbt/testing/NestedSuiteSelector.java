@@ -42,4 +42,8 @@ public final class NestedSuiteSelector extends Selector {
   @Override public int hashCode() {
     return _suiteId.hashCode();
   }
+
+  @Override public String toString() {
+    return "NestedSuiteSelector(" + _suiteId + ")";
+  }
 }

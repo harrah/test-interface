@@ -16,6 +16,9 @@ class SuiteSelectorSpec extends UnitSpec {
     def `should have a properly behaving hashCode method` {
       (new SuiteSelector).hashCode shouldEqual (new SuiteSelector).hashCode
     }
+    def `should have a pretty toString` {
+      aSuiteSelector.toString shouldEqual "SuiteSelector"
+    }
   }
 }
 

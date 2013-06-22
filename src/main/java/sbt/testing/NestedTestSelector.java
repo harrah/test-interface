@@ -62,4 +62,8 @@ public final class NestedTestSelector extends Selector {
     retVal = 31 * retVal + _testName.hashCode();
     return retVal;
   }
+
+  @Override public String toString() {
+    return "NestedTestSelector(" + _suiteId + ", " + _testName + ")";
+  }
 }

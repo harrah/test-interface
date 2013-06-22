@@ -30,7 +30,7 @@ class TaskDefSpec extends UnitSpec {
         WrapWithAnnotatedFingerprint,
         true,
         Array(new TestSelector("it should do something"))
-    )
+      )
 
   object `a TaskDef` {
     def `should give back what you put into it` {
@@ -95,6 +95,12 @@ class TaskDefSpec extends UnitSpec {
           Array(new TestSelector("it should do something"))
         ).hashCode
       )
+    }
+    def `should have a pretty toString` {
+      td1.toString should startWith ("TaskDef(com.myproject.SomeSpec, ")
+      td1.toString should endWith (", false, [SuiteSelector])")
+      td2.toString should startWith ("TaskDef(com.myproject.SomeOtherSpec, ")
+      td2.toString should endWith (", true, [TestSelector(it should do something)])")
     }
   }
 }

@@ -31,6 +31,10 @@ class TestWildcardSelectorSpec extends UnitSpec {
         new TestWildcardSelector(null)
       }
     }
+    def `should have a pretty toString` {
+      redTestWildcardSelector.toString shouldEqual "TestWildcardSelector(red)"
+      blueTestWildcardSelector.toString shouldEqual "TestWildcardSelector(blue)"
+    }
   }
 }
 

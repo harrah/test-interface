@@ -116,4 +116,8 @@ public final class TaskDef {
     retVal = 31 * retVal + Arrays.hashCode(_selectors);
     return retVal;
   }
+
+  @Override public String toString() {
+    return "TaskDef(" + _fullyQualifiedName + ", " + _fingerprint + ", " + _explicitlySpecified + ", " + Arrays.toString(_selectors) + ")";
+  }
 }

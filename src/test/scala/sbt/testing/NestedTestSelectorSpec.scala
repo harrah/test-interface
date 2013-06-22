@@ -45,6 +45,10 @@ class NestedTestSelectorSpec extends UnitSpec {
         new NestedTestSelector("red", null)
       }
     }
+    def `should have a pretty toString` {
+      redBirdNestedTestSelector.toString shouldEqual "NestedTestSelector(red, bird)"
+      blueBirdNestedTestSelector.toString shouldEqual "NestedTestSelector(blue, bird)"
+    }
   }
 }
 
