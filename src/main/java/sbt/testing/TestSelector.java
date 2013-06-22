@@ -38,5 +38,9 @@ public final class TestSelector extends Selector {
     }
     return retVal;
   }
+
+  @Override public int hashCode() {
+    return theTestName.hashCode();
+  }
 }
 

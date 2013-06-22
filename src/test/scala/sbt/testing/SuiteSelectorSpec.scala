@@ -11,6 +11,7 @@ class SuiteSelectorSpec extends UnitSpec {
       aSuiteSelector shouldEqual new SuiteSelector
       aSuiteSelector should not equal null
       aSuiteSelector should not equal "howdy"
+      aSuiteSelector should not equal new TestSelector("howdy")
     }
     def `should have a properly behaving hashCode method` {
       (new SuiteSelector).hashCode shouldEqual (new SuiteSelector).hashCode
