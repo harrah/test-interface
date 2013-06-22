@@ -32,9 +32,8 @@ public interface Event {
   Status status();
 
   /**
-   * A <code>Throwable</code> associated with this <code>Event</code>,
-   *     or <code>null</code> if no <code>Throwable</code> is associated with this event.
+   * An <code>OptionalThrowable</code> associated with this <code>Event</code>.
    */
-  Throwable throwable();
+  OptionalThrowable throwable();
 }
 
