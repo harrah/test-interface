@@ -7,6 +7,10 @@ class TestSelectorSpec extends UnitSpec {
   object `a TestSelector` {
     val redTestSelector = new TestSelector("red")
     val blueTestSelector = new TestSelector("blue")
+    def `should give back what you put into it` {
+      redTestSelector.testName shouldBe "red"
+      blueTestSelector.testName shouldBe "blue"
+    }
     def `should have a properly behaving equals method` {
       redTestSelector shouldEqual redTestSelector
       redTestSelector shouldEqual new TestSelector("red")

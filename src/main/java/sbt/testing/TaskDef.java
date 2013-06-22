@@ -61,7 +61,6 @@ public final class TaskDef {
   private boolean _explicitlySpecified;
   private Selector[] _selectors;
 
-  // TODO: Check for null and throw NPE
   TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
 
     if (fullyQualifiedName == null) {
