@@ -6,7 +6,7 @@ version := "1.0-SNAP3"
 
 scalaVersion := "2.10.1"
 
-javaSource in Compile <<= baseDirectory(base => base / "src")
+// javaSource in Compile <<= baseDirectory(base => base / "src")
 
 // disable using the Scala version in output paths and artifacts
 crossPaths := false
