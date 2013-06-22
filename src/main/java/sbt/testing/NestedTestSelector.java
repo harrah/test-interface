@@ -6,8 +6,8 @@ package sbt.testing;
  */
 public final class NestedTestSelector extends Selector {
 
-  private String suiteId;
-  private String testName;
+  private String _suiteId;
+  private String _testName;
 
   /**
    * Constructs a new <code>NestedSuiteSelector</code> with given <code>suiteId</code> and <code>testName</code>.
@@ -22,8 +22,8 @@ public final class NestedTestSelector extends Selector {
     if (testName == null) {
       throw new NullPointerException("testName was null");
     }
-    this.suiteId = suiteId;
-    this.testName = testName;
+    _suiteId = suiteId;
+    _testName = testName;
   }
 
   /**
@@ -32,16 +32,16 @@ public final class NestedTestSelector extends Selector {
    *
    * @return the id of the nested suite containing the test
    */
-  public String getSuiteId() {
-    return suiteId;
+  public String suiteId() {
+    return _suiteId;
   }
 
   /**
    * The name of the test in a nested suite about which an event was fired.
    *
-   * @return the name of the test in the nested suite identified by the id returned by <code>getSuiteId</code>.
+   * @return the name of the test in the nested suite identified by the id returned by <code>suiteId</code>.
    */
-  public String getTestName() {
-    return testName;
+  public String testName() {
+    return _testName;
   }
 }

@@ -54,32 +54,32 @@ package sbt.testing;
  */
 public class TaskDef {
 
-  private String theFullyQualifiedName;
-  private Fingerprint theFingerprint;
-  private boolean theExplicitlySpecified;
-  private Selector[] theSelectors;
+  private String _fullyQualifiedName;
+  private Fingerprint _fingerprint;
+  private boolean _explicitlySpecified;
+  private Selector[] _selectors;
 
   // TODO: Check for null and throw NPE
   TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
-    this.theFullyQualifiedName = fullyQualifiedName;
-    this.theFingerprint = fingerprint;
-    this.theExplicitlySpecified = explicitlySpecified;
-    this.theSelectors = selectors;
+    this._fullyQualifiedName = fullyQualifiedName;
+    this._fingerprint = fingerprint;
+    this._explicitlySpecified = explicitlySpecified;
+    this._selectors = selectors;
   }
 
   public String fullyQualifiedName() {
-    return theFullyQualifiedName;
+    return _fullyQualifiedName;
   }
 
   public Fingerprint fingerprint() {
-    return theFingerprint;
+    return _fingerprint;
   }
 
   public boolean explicitlySpecified() {
-    return theExplicitlySpecified;
+    return _explicitlySpecified;
   }
 
   public Selector[] selectors() {
-    return theSelectors;
+    return _selectors;
   }
 }

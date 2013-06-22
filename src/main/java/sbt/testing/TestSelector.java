@@ -7,7 +7,7 @@ package sbt.testing;
  */
 public final class TestSelector extends Selector {
 
-  private String theTestName;
+  private String _testName;
 
   /**
    * Constructs a new <code>TestSelector</code> with passed <code>testName</code>.
@@ -18,7 +18,7 @@ public final class TestSelector extends Selector {
     if (testName == null) {
       throw new NullPointerException("testName was null");
     }
-    theTestName = testName;
+    _testName = testName;
   }
 
   /**
@@ -27,20 +27,20 @@ public final class TestSelector extends Selector {
    * @return the name of the test
    */
   public String testName() {
-    return theTestName;
+    return _testName;
   }
 
   @Override public boolean equals(Object o) {
     boolean retVal = false;
     if (o instanceof TestSelector) {
       TestSelector ts = (TestSelector) o;
-      retVal = ts.theTestName == theTestName;
+      retVal = ts._testName == _testName;
     }
     return retVal;
   }
 
   @Override public int hashCode() {
-    return theTestName.hashCode();
+    return _testName.hashCode();
   }
 }
 

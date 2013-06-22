@@ -6,7 +6,7 @@ package sbt.testing;
  */
 public final class NestedSuiteSelector extends Selector {
 
-  private String suiteId;
+  private String _suiteId;
 
   /**
    * Constructs a new <code>NestedSuiteSelector</code> with given <code>suiteId</code>.
@@ -17,7 +17,7 @@ public final class NestedSuiteSelector extends Selector {
     if (suiteId == null) {
       throw new NullPointerException("suiteId was null");
     }
-    this.suiteId = suiteId;
+    _suiteId = suiteId;
   }
 
   /**
@@ -26,7 +26,7 @@ public final class NestedSuiteSelector extends Selector {
    *
    * @return the id of the nested suite
    */
-  public String getSuiteId() {
-    return suiteId;
+  public String suiteId() {
+    return _suiteId;
   }
 }

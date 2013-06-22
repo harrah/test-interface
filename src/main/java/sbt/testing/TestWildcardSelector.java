@@ -10,7 +10,7 @@ package sbt.testing;
  */
 public final class TestWildcardSelector extends Selector {
 
-  private String testWildcard;
+  private String _testWildcard;
 
   /**
    * Constructs a new <code>TestSelector</code> with passed <code>testWildcard</code>.
@@ -26,7 +26,7 @@ public final class TestWildcardSelector extends Selector {
     if (testWildcard == null) {
       throw new NullPointerException("testWildcard was null");
     }
-    this.testWildcard = testWildcard;
+    _testWildcard = testWildcard;
   }
 
   /**
@@ -39,8 +39,8 @@ public final class TestWildcardSelector extends Selector {
    *
    * @return the test wildcard string used to select tests.
    */
-  public String getTestWildcard() {
-    return testWildcard;
+  public String testWildcard() {
+    return _testWildcard;
   }
 }
 
