@@ -35,5 +35,10 @@ public interface Event {
    * An <code>OptionalThrowable</code> associated with this <code>Event</code>.
    */
   OptionalThrowable throwable();
+
+  /**
+   * An amount of time, in milliseconds, that was required to complete the action reported by this event, or -1, if no duration was available.
+   */
+  long duration();
 }
 
