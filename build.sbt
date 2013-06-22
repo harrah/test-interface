@@ -21,6 +21,8 @@ publishTo <<= version { v: String =>
   else                             Some("publish-releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
+libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0.M6-SNAP24" % "test"
+
 publishMavenStyle := true
 
 publishArtifact in Test := false
