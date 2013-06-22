@@ -1,5 +1,7 @@
 package sbt.testing;
 
+import java.util.Arrays;
+
 /**
  * Returns a task that when executed will run tests and suites determined by the
  * passed test class name, fingerprints, "explicitly specified" flag, and selectors.
@@ -52,7 +54,7 @@ package sbt.testing;
  * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
  * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
  */
-public class TaskDef {
+public final class TaskDef {
 
   private String _fullyQualifiedName;
   private Fingerprint _fingerprint;
@@ -72,10 +74,10 @@ public class TaskDef {
       throw new NullPointerException("selectors was null");
     }
 
-    this._fullyQualifiedName = fullyQualifiedName;
-    this._fingerprint = fingerprint;
-    this._explicitlySpecified = explicitlySpecified;
-    this._selectors = selectors;
+    _fullyQualifiedName = fullyQualifiedName;
+    _fingerprint = fingerprint;
+    _explicitlySpecified = explicitlySpecified;
+    _selectors = selectors;
   }
 
   public String fullyQualifiedName() {
@@ -92,5 +94,27 @@ public class TaskDef {
 
   public Selector[] selectors() {
     return _selectors;
+  }
+
+  @Override public boolean equals(Object o) {
+    boolean retVal = false;
+    if (o instanceof TaskDef) {
+      TaskDef td = (TaskDef) o;
+      retVal =
+        td._fullyQualifiedName.equals(_fullyQualifiedName) && 
+        td._fingerprint.equals(_fingerprint) && 
+        td._explicitlySpecified == _explicitlySpecified && 
+        Arrays.equals(td._selectors, _selectors);
+    }
+    return retVal;
+  }
+
+  @Override public int hashCode() {
+    int retVal = 17;
+    retVal = 31 * retVal + _fullyQualifiedName.hashCode();
+    retVal = 31 * retVal + _fingerprint.hashCode();
+    retVal = 31 * retVal + (_explicitlySpecified ? 1 : 0);
+    retVal = 31 * retVal + Arrays.hashCode(_selectors);
+    return retVal;
   }
 }
