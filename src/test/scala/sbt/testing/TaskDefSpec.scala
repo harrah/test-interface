@@ -2,7 +2,7 @@ package sbt.testing
 
 import org.scalatest._
 
-class TaskDefSpec extends Spec with Matchers {
+class TaskDefSpec extends UnitSpec {
 
   case object SuiteSubclassFingerprint extends SubclassFingerprint {
     def isModule: Boolean = false
