@@ -13,7 +13,7 @@ public final class TestWildcardSelector extends Selector {
   private String _testWildcard;
 
   /**
-   * Constructs a new <code>TestSelector</code> with passed <code>testWildcard</code>.
+   * Constructs a new <code>TestWildcardSelector</code> with passed <code>testWildcard</code>.
    *
    * <p>
    * The <code>testWildcard</code> is a simple string, <em>i.e.</em>, not a glob or regular expression.
@@ -41,6 +41,19 @@ public final class TestWildcardSelector extends Selector {
    */
   public String testWildcard() {
     return _testWildcard;
+  }
+
+  @Override public boolean equals(Object o) {
+    boolean retVal = false;
+    if (o instanceof TestWildcardSelector) {
+      TestWildcardSelector tws = (TestWildcardSelector) o;
+      retVal = tws._testWildcard == _testWildcard;
+    }
+    return retVal;
+  }
+
+  @Override public int hashCode() {
+    return _testWildcard.hashCode();
   }
 }
 
