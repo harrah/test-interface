@@ -102,8 +102,8 @@ public interface Runner {
    * <p>
    * The test framework may send a summary (i.e., a message giving total tests succeeded, failed, and
    * so on) to the user via a log message. If so, it should return the summary from <code>done</code>.
-     * If not, it should return an empty string. The client may use the return value of <code>done</code>
-     * to decide whether to display its own summary message.
+   * If not, it should return an empty string. The client may use the return value of <code>done</code>
+   * to decide whether to display its own summary message.
    * </p>
    *
    * <p>

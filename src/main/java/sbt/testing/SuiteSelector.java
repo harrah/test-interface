@@ -13,6 +13,7 @@ public final class SuiteSelector extends Selector {
   @Override public int hashCode() {
     return 29;
   }
+
   @Override public String toString() {
     return "SuiteSelector";
   }
