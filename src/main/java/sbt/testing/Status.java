@@ -21,9 +21,8 @@ package sbt.testing;
  * that were not executed because of failures in dependencies, which is also similar to canceled tests in ScalaTest.
  * </p>
  */
-public enum Status 
-{
-	Success, Error, Failure, Skipped, Ignored, Canceled, Pending
+public enum Status {
+  Success, Error, Failure, Skipped, Ignored, Canceled, Pending
 }
 
 

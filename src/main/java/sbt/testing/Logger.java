@@ -13,45 +13,45 @@ package sbt.testing;
  * Implementation of this interface must be thread-safe.
  * </p>
  */
-public interface Logger
-{
-	/**
-	 * True if ANSI color codes are understood by this instance.
-	 */
-	public boolean ansiCodesSupported();
+public interface Logger {
 
-	/**
-	 * Provide an error message.
-	 *
-	 * @param msg the error message
-	 */
-	public void error(String msg);
+  /**
+   * True if ANSI color codes are understood by this instance.
+   */
+  public boolean ansiCodesSupported();
 
-	/**
-	 * Provide an warning message.
-	 *
-	 * @param msg the warning message
-	 */
-	public void warn(String msg);
+  /**
+   * Provide an error message.
+   *
+   * @param msg the error message
+   */
+  public void error(String msg);
 
-	/**
-	 * Provide an info message.
-	 *
-	 * @param msg the info message
-	 */
-	public void info(String msg);
+  /**
+   * Provide an warning message.
+   *
+   * @param msg the warning message
+   */
+  public void warn(String msg);
 
-	/**
-	 * Provide an debug message.
-	 *
-	 * @param msg the debug message
-	 */
-	public void debug(String msg);
+  /**
+   * Provide an info message.
+   *
+   * @param msg the info message
+   */
+  public void info(String msg);
 
-	/**
-	 * Provide a stack trace
-	 *
-	 * @param t the <code>Throwable</code> containing the stack trace being logged
-	 */
-	public void trace(Throwable t);
+  /**
+   * Provide an debug message.
+   *
+   * @param msg the debug message
+   */
+  public void debug(String msg);
+
+  /**
+   * Provide a stack trace
+   *
+   * @param t the <code>Throwable</code> containing the stack trace being logged
+   */
+  public void trace(Throwable t);
 }
