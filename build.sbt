@@ -2,7 +2,7 @@ name := "test-interface"
 
 organization := "org.scalatest"
 
-version := "1.0-SNAP3"
+version := "1.0-SNAP4"
 
 scalaVersion := "2.10.1"
 
