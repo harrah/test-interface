@@ -61,7 +61,7 @@ public final class TaskDef {
   private boolean _explicitlySpecified;
   private Selector[] _selectors;
 
-  TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
+  public TaskDef(String fullyQualifiedName, Fingerprint fingerprint, boolean explicitlySpecified, Selector[] selectors) {
 
     if (fullyQualifiedName == null) {
       throw new NullPointerException("fullyQualifiedName was null");
