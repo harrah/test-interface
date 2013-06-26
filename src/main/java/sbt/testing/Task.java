@@ -34,4 +34,12 @@ public interface Task {
    * @return a possibly empty array of new tasks for the client to execute
    */
   Task[] execute(EventHandler eventHandler, Logger[] loggers);
+
+  /**
+   * Return the <code>TaskDef</code> that defines this Task.
+   *
+   * @return <code>TaskDef</code> that defines this Task.
+   */
+  TaskDef taskDef();
+
 }
