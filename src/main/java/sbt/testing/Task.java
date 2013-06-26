@@ -28,6 +28,7 @@ public interface Task {
 
   /**
    * Execute a task, possibly returning to the client new tasks to execute.
+   *
    * @param eventHandler an event handler to which to fire events during the run
    * @param loggers an array of loggers to which to emit log messages during the run
    * @return a possibly empty array of new tasks for the client to execute

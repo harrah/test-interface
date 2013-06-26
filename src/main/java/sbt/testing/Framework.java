@@ -6,13 +6,12 @@ package sbt.testing;
 public interface Framework {
 
   /**
-   * The name of the test framework that this object represents.
-   * It is intended to be a human readable label.
+   * A human-friendly name of the test framework that this object represents.
    */
   public String name();
 
   /**
-   * An array of <code>Fingerprint</code> that specify how to identify test classes during
+   * An array of <a href="Fingerprint.html"><code>Fingerprint</code></a>s that specify how to identify test classes during
    * discovery.
    */
   public Fingerprint[] fingerprints();
@@ -25,8 +24,9 @@ public interface Framework {
    * the test framework may throw <code>IllegalStateException</code>to indicate it
    * cannot perform the two runs concurrently.
    * </p>
+   *
    * @param args the test-framework-specific arguments for the new run
-   * @param remoteArgs the test-framework-specific remote arguments for the run in forked jvm
+   * @param remoteArgs the test-framework-specific remote arguments for the run in a forked JVM
    * @param testClassLoader a class loader to use when loading test classes during the run
    *
    * @return a <code>Runner</code> representing the newly started run.

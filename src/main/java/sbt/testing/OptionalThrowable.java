@@ -3,14 +3,15 @@ package sbt.testing;
 import java.io.Serializable;
 
 /**
- * Indicates an event was about the entire suite whose class had the fully qualified name specified as
- * the <code>fullyQualifiedName</code> attribute the event.
+ * An optional <code>Throwable</code>.
  */
 public final class OptionalThrowable implements Serializable {
 
   private Throwable exception;
 
-// TODO: NPE
+  /**
+   * Constructs an <code>OptionalThrowable</code> containing a <code>Throwable</code>.
+   */
   public OptionalThrowable(Throwable exception) {
     if (exception == null) {
       throw new NullPointerException("Cannot pass a null exception to OptionalThrowable's constructor.");
@@ -18,13 +19,26 @@ public final class OptionalThrowable implements Serializable {
     this.exception = exception;
   }
 
+  /**
+   * Constructs an <code>OptionalThrowable</code> containing no <code>Throwable</code>.
+   */
   public OptionalThrowable() {
   }
 
+  /**
+   * Indicates whether this <code>OptionalThrowable</code> is "defined," <em>i.e.</em>, contains a <code>Throwable</code>.
+   *
+   * @return true if this <code>OptionalThrowable</code> contains a <code>Throwable</code>
+   */
   public boolean isDefined() {
     return exception != null;
   }
 
+  /**
+   * Indicates whether this <code>OptionalThrowable</code> is "empty," <em>i.e.</em>, contains no <code>Throwable</code>.
+   *
+   * @return true if this <code>OptionalThrowable</code> contains no <code>Throwable</code>
+   */
   public boolean isEmpty() {
     return exception == null;
   }

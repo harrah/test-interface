@@ -5,8 +5,8 @@ package sbt.testing;
  * during a run.
  *
  * <p>
- * An event handler is passed to the test framework via the <code>runner</code> method
- * in <code>Framework</code>.
+ * An event handler is passed to the test framework via the <code>execute</code> method
+ * of <a href="Task.html"><code>Task</code></a>s.
  * </p>
  */
 public interface EventHandler {

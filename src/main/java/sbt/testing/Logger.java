@@ -6,7 +6,7 @@ package sbt.testing;
  * <p>
  * The difference between the event handler and the logger is that the event handler is
  * for events intended to be consumed by the client software whereas the logger is
- * for messages intended to be consumed by the client *user* (i.e., a human).
+ * for messages intended to be consumed by the client *user* (<em>i.e.</em>, a human).
  * </p>
  *
  * <p>
@@ -42,7 +42,7 @@ public interface Logger {
   public void info(String msg);
 
   /**
-   * Provide an debug message.
+   * Provide a debug message.
    *
    * @param msg the debug message
    */
