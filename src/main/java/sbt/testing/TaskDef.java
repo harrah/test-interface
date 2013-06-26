@@ -1,6 +1,7 @@
 package sbt.testing;
 
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
  * Returns a task that when executed will run tests and suites determined by the
@@ -54,7 +55,7 @@ import java.util.Arrays;
  * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
  * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
  */
-public final class TaskDef {
+public final class TaskDef implements Serializable {
 
   private String _fullyQualifiedName;
   private Fingerprint _fingerprint;

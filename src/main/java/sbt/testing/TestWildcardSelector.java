@@ -1,5 +1,7 @@
 package sbt.testing;
 
+import java.io.Serializable;
+
 /**
  * Information that identifies zero to many tests directly contained in a test class.
  *
@@ -8,7 +10,7 @@ package sbt.testing;
  * Any test whose name includes the <code>testWildcard</code> string as a substring will be selected.
  * </p>
  */
-public final class TestWildcardSelector extends Selector {
+public final class TestWildcardSelector extends Selector implements Serializable {
 
   private String _testWildcard;
 

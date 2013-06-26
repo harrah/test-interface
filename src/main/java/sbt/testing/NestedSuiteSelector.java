@@ -1,10 +1,12 @@
 package sbt.testing;
 
+import java.io.Serializable;
+
 /**
  * Information in addition to a test class name that identifies a nested suite about which an
  * event was fired.
  */
-public final class NestedSuiteSelector extends Selector {
+public final class NestedSuiteSelector extends Selector implements Serializable {
 
   private String _suiteId;
 

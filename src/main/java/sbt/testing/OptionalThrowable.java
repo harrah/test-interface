@@ -1,10 +1,12 @@
 package sbt.testing;
 
+import java.io.Serializable;
+
 /**
  * Indicates an event was about the entire suite whose class had the fully qualified name specified as
  * the <code>fullyQualifiedName</code> attribute the event.
  */
-public final class OptionalThrowable {
+public final class OptionalThrowable implements Serializable {
 
   private Throwable exception;
 
