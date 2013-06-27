@@ -43,6 +43,16 @@ public final class OptionalThrowable implements Serializable {
     return exception == null;
   }
 
+  /**
+   * Returns the <code>Throwable</code> contained in this <code>OptionalThrowable</code> if defined, else throws <code>IllegalStateException</code>.
+   *
+   * <p>
+   * To avoid the <code>IllegalStateException</code>, ensure <code>isDefined</code> returns <code>true</code> before calling this method.
+   * </p>
+   *
+   * @return the contained <code>Throwable</code>, if this <code>OptionalThrowable</code> is defined
+   * @throws IllegalStateException if this <code>OptionalThrowable</code> is not defined.
+   */
   public Throwable get() {
     if (exception == null) {
       throw new IllegalStateException("This OptionalThrowable is not defined");

@@ -10,7 +10,7 @@ package sbt.testing;
  * </p>
  *
  * <p>
- * Implementation of this interface must be thread-safe.
+ * Implementations of this interface must be thread-safe.
  * </p>
  */
 public interface Logger {

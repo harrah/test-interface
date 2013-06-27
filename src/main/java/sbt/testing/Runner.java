@@ -8,64 +8,35 @@ package sbt.testing;
  * <code>Runner</code> is instantiated by the framework and returned to the client during
  * a <code>Framework.runner</code> invocation. The run continues until the client
  * invokes <code>done</code> on the <code>Runner</code>. Before invoking <code>done</code>,
- * the client can invoke the <code>task</code> methods as many times at it wants, but once
+ * the client can invoke the <code>tasks</code> method as many times at it wants, but once
  * <code>done</code> has been invoked, the <code>Runner</code> enters "spent" mode. Any
- * subsequent invocations of <code>task</code> methods will be met with an
+ * subsequent invocations of <code>tasks</code> will be met with an
  * <code>IllegalStateException</code>.
  * </p>
  */
 public interface Runner {
 
   /**
-   * Returns a task that when executed will run tests and suites determined by the
-   * passed test class name, fingerprints, "explicitly specified" flag, and selectors.
-   *
-   * <p>
-   * "Explicitly specified" means the user supplied a complete fully qualified test name, such as with the command:
-   * </p>
-   *
-   * <pre>
-   * &gt; test-only <code>com.mycompany.myproject.WholeNameSpec</code>
-   * </pre>
-   *
-   * <p>
-   * as opposed to commands like:
-   * </p>
+   * Returns an array of tasks that when executed will run tests and suites determined by the
+   * passed <code>TaskDef</code>s.
    * 
-   * <pre>
-   * &gt; test-only <code>*WholeNameSpec</code>
-   * </pre>
-   *
    * <p>
-   * or simply:
-   * </p>
-   * 
-   * <pre>
-   * &gt; test
-   * </pre>
-   *
-   * <p>
-   * The <code>explicitlySpecified</code> flag will be true for in the first case, and false in the last two cases, because only
-   * in the first case was the fully qualified test class name completely specified by the user. The test framework can use this information
-   * to decide whether to ignore an annotation requesting a class not be discovered.
+   * Each returned task, when executed, will run tests and suites determined by the
+   * test class name, fingerprints, "explicitly specified" field, and selectors of one of the passed <code>TaskDef</code>s.
    * </p>
    *
    * <p>
-   * The <code>fingerprint</code> parameter indicates how the test suite was identified as a test suite. This <code>task</code>
-   * method may be called with the same value for <code>testClassName</code> but different fingerprints.  For example, if both a
-   * class and its companion object were test classes, this method would be called with the same name but with a different value
-   * for <code>fingerprint.isModule</code>.
+   * This <code>tasks</code> method may be called with <code>TaskDef</code>s containing the same value for <code>testClassName</code> but
+   * different fingerprints. For example, if both a class and its companion object were test classes, the <code>tasks</code> method could be
+   * passed an array containing <code>TaskDef</code>s with the same name but with a different value for <code>fingerprint.isModule</code>.
    * </p>
    *
    * <p>
-   * A test framework may "reject" a requested task by returning a <code>Task</code> that does nothing.
+   * A test framework may "reject" a requested task by returning no <code>Task</code> for that <code>TaskDef</code>.
    * </p>
    *
-   * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
-   * @param fingerprint indicates how the test suite was identified as a test suite.
-   * @param explicitlySpecified indicates whether the test class is explicitly specified by user.
-   * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
-   * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
+   * @param taskDefs the <code>TaskDef</code>s for requested tasks
+   * @return an array of <code>Task</code>s
    * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
    */
   public Task[] tasks(TaskDef[] taskDefs);
@@ -76,7 +47,7 @@ public interface Runner {
    * <p>
    * After invoking the <code>done</code> method on a <code>Runner</code> instance, the client should no
    * longer invoke the <code>task</code> methods on that instance. (If the client does invoke <code>task</code>
-   * after <code>done</code>, it will be rewarded with an <code>IllegalStateException</code>.
+   * after <code>done</code>, it will be rewarded with an <code>IllegalStateException</code>.)
    * </p>
    *
    * <p>
@@ -100,30 +71,30 @@ public interface Runner {
    * </p>
    *
    * <p>
-   * The test framework may send a summary (i.e., a message giving total tests succeeded, failed, and
+   * The test framework may send a summary (<em>i.e.</em>, a message giving total tests succeeded, failed, and
    * so on) to the user via a log message. If so, it should return the summary from <code>done</code>.
    * If not, it should return an empty string. The client may use the return value of <code>done</code>
    * to decide whether to display its own summary message.
    * </p>
    *
    * <p>
-   * The test framework may return a multi-lines string (i.e., a message giving total tests succeeded, failed and
-   * so on) to sbt
+   * The test framework may return a multi-lines string (<em>i.e.</em>, a message giving total tests succeeded, failed and
+   * so on) to the client.
    * </p>
    *
-   * @return string for sbt to print out as summary
+   * @return a possibly multi-line summary string, or the enpty string if no summary is provided
    */
   public String done();
 
   /**
-   * Remote args that will be passed to Runner in sub-process as remoteArgs.  This method must not return null.
+   * Remote args that will be passed to <code>Runner</code> in a sub-process as <em>remoteArgs</em>.
    *
-   * @return an array of argument that will be passed to Runner in sub-process as remoteArgs.
+   * @return an array of strings that will be passed to <code>Runner</code> in a sub-process as <code>remoteArgs</code>.
    */
   public String[] remoteArgs();
 
   /**
-   * Return arguments that is used to create this Runner.
+   * Returns thge arguments that were used to create this <code>Runner</code>.
    *
    * @return an array of argument that is used to create this Runner.
    */

@@ -5,6 +5,7 @@ package sbt.testing;
  * or mix in a particular supertrait, should be discovered as test classes.
  */
 public interface SubclassFingerprint extends Fingerprint {
+
   /**
    * Indicates whether modules (singleton objects) that extend the superclass or
    * supertrait should be considered during discovery, or just classes.
@@ -14,7 +15,7 @@ public interface SubclassFingerprint extends Fingerprint {
    * <code>isModule</code>. Returning <code>false</code> will speed up discovery because
    * classes for modules can be quickly bypassed.
    * </p>
-   */                     // TODO update dox it is either or
+   */
   public boolean isModule();
 
   /**
@@ -24,7 +25,13 @@ public interface SubclassFingerprint extends Fingerprint {
   public String superclassName();
 
   /**
-   * Indicates whether the discovered class requires no argument constructor.
+   * Indicates whether discovered classes must have a no-arg constructor.
+   *
+   * <p>
+   * If this method returns <code>true</code>, the client should not discover any subclass of
+   * the given <code>superClassName</code> that does not declare a no-arg constructor, <em>i.e.</em>,
+   * a constructor that takes no arguments.
+   * </p>
    */
   public boolean requireNoArgConstructor();
 }

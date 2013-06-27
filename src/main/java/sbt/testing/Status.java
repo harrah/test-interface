@@ -6,8 +6,8 @@ package sbt.testing;
  *
  * <ul>
  * <li>Success - a test succeeded</li>
- * <li>Error - an unexpected error (as opposed to an assertion error) occurred during a test</li>
- * <li>Failure - an assertion failed during a test</li>
+ * <li>Error - an "error" occurred during a test</li>
+ * <li>Failure - an "failure" during a test</li>
  * <li>Skipped - a test was skipped for any reason</li>
  * <li>Ignored - a test was ignored, <em>i.e.</em>, temporarily disabled with the intention of fixing it later</li>
  * <li>Canceled - a test was canceled, <em>i.e.</em>, not able to be completed because of some unmet pre-condition, such as a database being offline that the test requires</li>
@@ -15,6 +15,7 @@ package sbt.testing;
  * </ul>
  *
  * <p>
+ * The difference between errors and failures, if any, is determined by the test frameworks.
  * JUnit and specs2 differentiate between errors and failures. ScalaTest reports everything (both assertion failures and unexpected errors) as failures.
  * JUnit and ScalaTest support ignored tests. ScalaTest and specs2 support a notion of pending tests. ScalaTest differentiates between ignored and
  * canceled tests, whereas specs2 only supports skipped tests, which are implemented like ScalaTest's canceled tests. TestNG uses "skipped" to report tests
@@ -22,7 +23,41 @@ package sbt.testing;
  * </p>
  */
 public enum Status {
-  Success, Error, Failure, Skipped, Ignored, Canceled, Pending
+
+  /**
+   * Indicates a test succeeded.
+   */
+  Success,
+
+  /**
+   * Indicates an "error" occurred.
+   */
+  Error,
+
+  /**
+   * Indicates a "failure" occurred.
+   */
+  Failure,
+
+  /**
+   * Indicates a test was skipped.
+   */
+  Skipped,
+
+  /**
+   * Indicates a test was ignored.
+   */
+  Ignored,
+
+  /**
+   * Indicates a test was canceled.
+   */
+  Canceled,
+
+  /**
+   * Indicates a test was declared as pending.
+   */
+  Pending
 }
 
 
