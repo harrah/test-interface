@@ -112,10 +112,13 @@ public final class TaskDef implements Serializable {
     return _explicitlySpecified;
   }
 
-  // TODO: Flesh out this ScalaDoc, or put it on top. What can actually be in this Selectors array. What are the
-  // scenarios. When can it be empty. When can it have more than one, etc.
   /**
-   * Zero to many selectors describing the nature of the <code>Task</code> requested by this <code>TaskDef</code>.
+   * One to many selectors describing the nature of the <code>Task</code> requested by this <code>TaskDef</code>.
+   *
+   * <p>
+   * A <code>Selector</code> can indicate a direct, such as command-line, request from the user or a "rerun" of previously run tests.
+   * In the latter case, the <code>Selectors</code> would be taken from those passed in events of a previous run or runs.
+   * </p>
    */
   public Selector[] selectors() {
     return _selectors;
