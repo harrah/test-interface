@@ -1,15 +1,17 @@
 name := "test-interface"
 
-organization := "org.scalatest"
+organization := "org.scala-sbt
 
-version := "1.0-SNAP7"
+version := "1.0"
 
-scalaVersion := "2.10.1"
+description := "Uniform test interface to Scala/Java test frameworks (specs, ScalaCheck, ScalaTest, JUnit and other)"
 
-// javaSource in Compile <<= baseDirectory(base => base / "src")
+scalaVersion := "2.10.2"
 
 // disable using the Scala version in output paths and artifacts
 crossPaths := false
+
+autoScalaLibrary := false
 
 resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases",
                   "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
@@ -30,16 +32,16 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
 
 pomExtra := (
-  <url>http://www.scala-sbt</url>
+  <url>http://www.scala-sbt.org</url>
   <licenses>
     <license>
-      <name>Test Interface License</name>
-      <url>https://github.com/harrah/test-interface/blob/master/LICENSE</url>
+      <name>BSD</name>
+      <url>https://github.com/sbt/test-interface/blob/master/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
   <scm>
-    <url>https://github.com/harrah/test-interface</url>
+    <url>https://github.com/sbt/test-interface</url>
   </scm>
   <developers>
     <developer>
