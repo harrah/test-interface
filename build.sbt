@@ -1,6 +1,6 @@
 name := "test-interface"
 
-organization := "org.scala-sbt
+organization := "org.scala-sbt"
 
 version := "1.0"
 
