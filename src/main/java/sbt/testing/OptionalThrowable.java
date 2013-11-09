@@ -11,11 +11,10 @@ public final class OptionalThrowable implements Serializable {
 
   /**
    * Constructs an <code>OptionalThrowable</code> containing a <code>Throwable</code>.
+   * @param exception if null an empty OptionalThrowable will be created
+   * @see sbt.testing.OptionalThrowable#isEmpty()
    */
   public OptionalThrowable(Throwable exception) {
-    if (exception == null) {
-      throw new NullPointerException("Cannot pass a null exception to OptionalThrowable's constructor.");
-    }
     this.exception = exception;
   }
 

@@ -37,10 +37,9 @@ class OptionalThrowableSpec extends UnitSpec {
         }
       }
     }
-    def `should throw NPE from constructor if null passed` {
-      a [NullPointerException] should be thrownBy {
-        new OptionalThrowable(null)
-      }
+    def `should be empty and not-defined if constructed with null` {
+      new OptionalThrowable(null).isEmpty shouldBe true
+      new OptionalThrowable(null).isDefined shouldBe false
     }
     def `should have a properly behaving equals method` {
       def1 shouldEqual def1
